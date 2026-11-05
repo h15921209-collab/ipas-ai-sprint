@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>iPAS AI應用規劃師 (初級) 全真模擬考卷 (2頁空白/4頁詳解) ＋ 資優生手寫筆記 ＋ 衝刺講義總站</title>
+  <title>iPAS AI應用規劃師 (初級) 全真考卷 (2頁空白/4頁詳解) ＋ 13pt大字手寫筆記 (2頁) ＋ 衝刺講義總站</title>
   
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -80,7 +80,7 @@
       padding: 8px 16px;
     }
     .master-bar-container {
-      max-width: 1380px;
+      max-width: 1420px;
       margin: 0 auto;
       display: flex;
       flex-wrap: wrap;
@@ -243,7 +243,6 @@
       font-weight: 700;
     }
 
-    /* 2-Column Newspaper Exam Layout */
     .exam-two-col {
       column-count: 2;
       column-gap: 6mm;
@@ -336,7 +335,6 @@
       color: #333333;
     }
 
-    /* ================= 4-PAGE SOLUTION MANUAL SPECIAL STYLING ================= */
     .sol-sheet {
       padding: 7mm 10mm !important;
     }
@@ -351,7 +349,9 @@
       padding-bottom: 4px;
     }
 
-    /* ================= KOKUYO HANDWRITTEN NOTEBOOK STYLING ================= */
+    /* =========================================================================
+       2-PAGE FULL-BLEED 13PT BIG-FONT HANDWRITTEN NOTEBOOK (KOKUYO GRAPH PAPER)
+       ========================================================================= */
     .note-sheet {
       background-color: #fcfaf2;
       background-image:
@@ -360,17 +360,17 @@
       background-size: 5mm 5mm;
       font-family: 'JasonHandwriting1', 'Klee One', 'LXGW WenKai TC', 'Caveat', "DFKai-SB", cursive, serif;
       font-weight: 600;
-      color: #1a365d;
-      padding: 7mm 9mm 6mm 14mm;
+      color: #1a365d; /* 0.38mm Blue-Black Gel Pen Ink */
+      padding: 8mm 12mm 6mm 16mm;
       position: relative;
-      letter-spacing: 0.2px;
+      letter-spacing: 0.3px;
     }
     .note-sheet::before {
       content: "";
       position: absolute;
       top: 0;
       bottom: 0;
-      left: 10mm;
+      left: 11mm;
       width: 2px;
       border-left: 1.5px solid rgba(239, 68, 68, 0.45);
       border-right: 1px solid rgba(239, 68, 68, 0.25);
@@ -378,9 +378,9 @@
     }
     .binder-holes {
       position: absolute;
-      left: 3mm;
-      top: 16mm;
-      bottom: 16mm;
+      left: 3.5mm;
+      top: 18mm;
+      bottom: 18mm;
       width: 4.5mm;
       display: flex;
       flex-direction: column;
@@ -395,119 +395,100 @@
       border: 1px solid #cbd5e1;
       box-shadow: inset 1px 1px 2px rgba(0,0,0,0.15);
     }
+
+    /* Top Handwritten Header */
     .note-top-header {
-      border-bottom: 2.2px solid #1e3a8a;
-      padding-bottom: 2px;
-      margin-bottom: 5px;
+      border-bottom: 2.5px solid #1e3a8a;
+      padding-bottom: 3px;
+      margin-bottom: 8px;
       display: flex;
       justify-content: space-between;
       align-items: flex-end;
     }
     .note-tag-topic {
-      font-size: 8.5pt;
+      font-size: 9.5pt;
       color: #dc2626;
-      font-weight: 700;
+      font-weight: 800;
       display: block;
     }
     .note-main-title {
-      font-size: 13.5pt;
-      font-weight: 700;
+      font-size: 16pt;
+      font-weight: 800;
       color: #1e3a8a;
+      letter-spacing: 0.5px;
     }
     .note-meta-date {
-      font-size: 8.5pt;
+      font-size: 9.5pt;
       color: #475569;
       display: flex;
-      gap: 8px;
+      align-items: center;
+      gap: 10px;
     }
-    .note-grid-container {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 3.5mm;
-      flex: 1;
-      font-size: 8.6pt;
-      line-height: 1.42;
+    .note-page-pill {
+      background: #1e3a8a;
+      color: #ffffff;
+      padding: 1px 8px;
+      border-radius: 4px;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 9pt;
+      font-weight: 700;
     }
-    .note-card-box {
-      background: rgba(255, 255, 255, 0.75);
-      border: 1px solid rgba(96, 165, 250, 0.35);
-      border-radius: 6px;
-      padding: 5px 7px;
+
+    /* Full-Bleed 13pt Big-Font Body */
+    .large-note-body {
       display: flex;
       flex-direction: column;
-      box-shadow: 1px 2px 4px rgba(0,0,0,0.04);
+      justify-content: space-between;
+      flex: 1;
+      gap: 8px;
     }
-    .note-sec-title {
-      font-size: 9.5pt;
-      font-weight: 700;
+    .note-big-sec {
+      background: rgba(255, 255, 255, 0.78);
+      border: 1.2px solid rgba(96, 165, 250, 0.4);
+      border-radius: 6px;
+      padding: 8px 12px;
+      box-shadow: 1px 2px 4px rgba(0,0,0,0.03);
+    }
+    .note-big-title {
+      font-size: 14.5pt;
+      font-weight: 800;
       color: #1e3a8a;
-      border-bottom: 1.5px solid rgba(30, 58, 138, 0.3);
-      padding-bottom: 2px;
-      margin-bottom: 3px;
+      border-bottom: 1.8px solid rgba(30, 58, 138, 0.35);
+      padding-bottom: 3px;
+      margin-bottom: 6px;
     }
-
-    .pen-red { color: #dc2626 !important; font-weight: 700; }
-    .pen-blue { color: #2563eb !important; font-weight: 700; }
-    .pen-purple { color: #7c3aed !important; font-weight: 700; }
-    .pen-green { color: #059669 !important; font-weight: 700; }
-    .quote-text { color: #b45309; font-weight: 700; }
-
-    mark.hl-yellow { background: rgba(254, 240, 138, 0.7); padding: 0 2px; border-radius: 2px; }
-    mark.hl-cyan { background: rgba(165, 243, 252, 0.7); padding: 0 2px; border-radius: 2px; }
-    mark.hl-pink { background: rgba(251, 207, 232, 0.7); padding: 0 2px; border-radius: 2px; }
-
-    .sticky-note {
-      border-radius: 4px;
-      padding: 5px 6px;
-      box-shadow: 1px 2px 4px rgba(0,0,0,0.08);
-      font-size: 8.1pt;
-      line-height: 1.35;
-    }
-    .stick-yellow { background: #fef9c3; border-left: 3px solid #eab308; color: #713f12; }
-    .stick-pink { background: #fce7f3; border-left: 3px solid #ec4899; color: #831843; }
-    .stick-green { background: #dcfce7; border-left: 3px solid #22c55e; color: #14532d; }
-    .stick-blue { background: #e0f2fe; border-left: 3px solid #0284c7; color: #0c4a6e; }
-
-    .handwritten-matrix-table {
-      width: 100%;
-      border-collapse: collapse;
-      font-size: 7.8pt;
-      margin: 3px 0;
-      text-align: center;
-    }
-    .handwritten-matrix-table th, .handwritten-matrix-table td {
-      border: 1px solid #1e3a8a;
-      padding: 2px;
-    }
-    .cell-tp { background: #dcfce7; color: #15803d; font-weight: 700; }
-    .cell-fn { background: #fee2e2; color: #b91c1c; font-weight: 700; }
-    .cell-fp { background: #fee2e2; color: #b91c1c; font-weight: 700; }
-    .cell-tn { background: #e0f2fe; color: #0369a1; font-weight: 700; }
-
-    .vf {
-      display: inline-flex;
+    .note-bullet-list {
+      list-style-type: none;
+      padding-left: 0;
+      margin: 0;
+      display: flex;
       flex-direction: column;
-      align-items: center;
-      vertical-align: middle;
-      line-height: 1.0;
-      font-size: 0.88em;
-      margin: 0 1px;
-      font-weight: 700;
+      gap: 7px;
+      font-size: 13pt; /* 13pt Big Font! */
+      line-height: 1.62;
     }
-    .vf .vn { border-bottom: 1.2px solid currentColor; padding: 0 2px; }
-    .vf .vd { padding: 0 2px; }
+    .note-bullet-list li {
+      position: relative;
+      padding-left: 6px;
+    }
 
-    .decision-tree-box { font-size: 8pt; line-height: 1.32; margin: 3px 0; }
-    .tree-node { font-weight: 700; color: #1e3a8a; margin-bottom: 2px; }
-    .tree-branches { display: flex; flex-direction: column; gap: 3px; }
-    .branch-item { background: #ffffff; border: 1px solid #e2e8f0; border-radius: 4px; padding: 3px 4px; }
+    .pen-red { color: #dc2626 !important; font-weight: 800; }
+    .pen-blue { color: #2563eb !important; font-weight: 800; }
+    .pen-purple { color: #7c3aed !important; font-weight: 800; }
+    .pen-green { color: #059669 !important; font-weight: 800; }
+    .quote-text { color: #b45309; font-weight: 800; }
+
+    mark.hl-yellow { background: rgba(254, 240, 138, 0.75); padding: 0 4px; border-radius: 3px; font-weight: 800; }
+    mark.hl-cyan { background: rgba(165, 243, 252, 0.75); padding: 0 4px; border-radius: 3px; font-weight: 800; }
+    mark.hl-pink { background: rgba(251, 207, 232, 0.75); padding: 0 4px; border-radius: 3px; font-weight: 800; }
+
     .note-sheet-footer {
       border-top: 1.5px solid #1e3a8a;
-      padding-top: 2px;
+      padding-top: 3px;
       margin-top: 4px;
       display: flex;
       justify-content: space-between;
-      font-size: 8pt;
+      font-size: 9pt;
       color: #475569;
     }
 
@@ -551,7 +532,7 @@
         break-after: avoid !important;
       }
       .note-sheet {
-        padding: 5mm 7mm 4mm 12mm !important;
+        padding: 6mm 10mm 5mm 15mm !important;
       }
     }
   </style>
@@ -571,13 +552,13 @@
           📄 科目一 全真考卷
         </button>
         <button class="view-btn note-mode" onclick="switchMasterView('sub1-note', this)">
-          📝 科目一 手工筆記
+          📝 科目一 大字筆記(2頁)
         </button>
         <button class="view-btn exam-mode" onclick="switchMasterView('sub2-exam', this)">
           📄 科目二 全真考卷
         </button>
         <button class="view-btn note-mode" onclick="switchMasterView('sub2-note', this)">
-          📝 科目二 手工筆記
+          📝 科目二 大字筆記(2頁)
         </button>
       </div>
 
@@ -595,8 +576,8 @@
         <button class="tool-btn btn-print-sol" onclick="printDocument('solution')" title="一鍵列印 A4 全彩詳解手冊 (4頁，絕不超版)">
           🖨️ 列印詳解手冊 (4頁)
         </button>
-        <button class="tool-btn btn-print-note" onclick="printDocument('note')" title="一鍵列印 A4 資優生方格筆記 (1頁)">
-          🖨️ 列印手寫筆記 (1頁)
+        <button class="tool-btn btn-print-note" onclick="printDocument('note')" title="一鍵列印 A4 13pt大字手寫筆記 (2頁)">
+          🖨️ 列印手寫筆記 (2頁)
         </button>
         <button class="tool-btn" style="background: #334155;" onclick="toggleTheme()" title="切換深淺外觀">
           ☀️/🌙
@@ -2850,118 +2831,174 @@
     </div>
   </div>
 
-  <!-- ================= VIEW 3: SUBJECT 1 HANDWRITTEN NOTEBOOK (1-PAGE) ================= -->
+  <!-- ================= VIEW 3: SUBJECT 1 HANDWRITTEN NOTEBOOK (2-PAGE BIG FONT) ================= -->
   <div id="view-sub1-note" class="workspace-view">
     <div class="a4-wrapper">
       
-    <div class="a4-sheet note-sheet" id="sub1_note">
-      <div class="binder-holes">
-        <div class="binder-hole"></div>
-        <div class="binder-hole"></div>
-        <div class="binder-hole"></div>
-        <div class="binder-hole"></div>
-        <div class="binder-hole"></div>
-        <div class="binder-hole"></div>
-      </div>
-      
+    <div class="note-mode-container" id="sub1_note_container">
+      <!-- ====== NOTE PAGE 1 OF 2 ====== -->
+      <div class="a4-sheet note-sheet note-sheet-strict">
+        <div class="binder-holes">
+          <div class="binder-hole"></div><div class="binder-hole"></div><div class="binder-hole"></div>
+          <div class="binder-hole"></div><div class="binder-hole"></div><div class="binder-hole"></div>
+        </div>
+        
         <div class="note-top-header">
           <div>
-            <span class="note-tag-topic"># iPAS AI規劃師筆記</span>
-            <span class="note-main-title">科目一：AI基礎概論 · 資優生考前不死筆記</span>
+            <span class="note-tag-topic"># iPAS AI規劃師學霸手寫筆記</span>
+            <span class="note-main-title">科目一：AI基礎概論 · 考前衝刺核心要點</span>
           </div>
           <div class="note-meta-date">
             <span>📅 2026.11.07</span>
             <span>📍 文藻外語大學</span>
+            <span class="note-page-pill">[Page 1 / 2]</span>
           </div>
         </div>
 
-        <div class="note-grid-container">
-          <div class="note-card-box">
-            <div class="note-sec-title">📌 01. 演算法混淆死穴 (KNN vs K-Means)</div>
-            <div class="note-handwrite-p">
-              • <mark class="hl-yellow">KNN (K最近鄰)</mark>：<span class="pen-red">監督式！</span>分類與回歸。<br>
-              &nbsp;&nbsp;➔ <span class="quote-text">「看朋友認人」</span>：身邊 5 個朋友 4 個賭徒，他就是賭徒！朋友自帶標籤。<br>
-              • <mark class="hl-cyan">K-Means (K平均)</mark>：<span class="pen-red">非監督式！</span>分群(Clustering)。<br>
-              &nbsp;&nbsp;➔ <span class="quote-text">「廣場隨機抱團」</span>：沒名牌沒標籤，純靠距離湊小圈圈！<br>
-              • <mark class="hl-pink">PCA (主成分分析)</mark>：非監督降維。<br>
-              &nbsp;&nbsp;➔ <span class="quote-text">「拍護照證件照」</span>：3D壓扁成2D，找最大變異數方向保留最多臉部特徵！
-            </div>
-
-            <div class="sticky-note stick-yellow" style="margin-top: 8px;">
-              <b>⚠️ 擬合狀態診斷口訣：</b><br>
-              • <b>欠擬合 (Underfitting)</b>：平時0分、期末0分 ➔ <span class="pen-red">High Bias (學力不足)</span>！解法：增加模型複雜度、加特徵！<br>
-              • <b>過擬合 (Overfitting)</b>：舊題100分、新題20分 ➔ <span class="pen-red">High Variance (死記硬背)</span>！解法：Dropout、L1/L2、增加資料！
-            </div>
-
-            <div class="note-handwrite-p" style="margin-top: 6px;">
-              • <b>L1 Lasso</b>：懲罰絕對值 ➔ <span class="pen-red">衣服丟垃圾桶清零</span> (稀疏矩陣/特徵選擇)！<br>
-              • <b>L2 Ridge</b>：懲罰平方和 ➔ <span class="pen-blue">抽真空壓縮袋</span> (均勻縮小權重但不為零)！
-            </div>
+        <div class="large-note-body">
+          <div class="note-big-sec">
+            <div class="note-big-title">壹、機器學習核心學習範式混淆大對決（必考分類！）</div>
+            <ul class="note-bullet-list">
+              <li>
+                <mark class="hl-yellow">KNN (K最近鄰)</mark>：<span class="pen-red">監督式學習！</span>可用於分類與回歸。<br>
+                ➔ <span class="quote-text">【看朋友認人】</span>：身邊 5 個朋友有 4 個是老千賭徒，他 80% 就是老千！朋友身上自帶標籤，屬於惰性學習。
+              </li>
+              <li>
+                <mark class="hl-cyan">K-Means (K平均分群)</mark>：<span class="pen-red">非監督式學習！</span>無任何標籤。<br>
+                ➔ <span class="quote-text">【廣場隨機抱團】</span>：100 個陌生人進廣場，隨機選 3 個隊長，所有人找最近的隊長抱成一團，反覆調整中心點直到分出 3 個獨立小圈圈！純靠物理距離湊堆！
+              </li>
+              <li>
+                <mark class="hl-pink">PCA (主成分分析)</mark>：<span class="pen-blue">非監督式降維技術！</span><br>
+                ➔ <span class="quote-text">【拍護照大頭照】</span>：3D 立體真人壓成 2D 平面照片。攝影師找最好的正交投影角度，在保留最多臉部五官線條（最大變異數 Variance）的前提下把維度壓扁！
+              </li>
+              <li>
+                <span class="pen-green">強化學習 (RL, Reinforcement Learning)</span>：依靠環境回饋的「獎勵信號 (Reward)」學習最優策略，不依賴預先標記好的樣本！
+              </li>
+            </ul>
           </div>
 
-          <div class="note-card-box">
-            <div class="note-sec-title">⚡ 02. 混淆矩陣神算表 (3秒判斷)</div>
-            <table class="handwritten-matrix-table">
-              <tr>
-                <th></th>
-                <th>預測 Positive</th>
-                <th>預測 Negative</th>
-              </tr>
-              <tr>
-                <td><b>真 Positive</b></td>
-                <td class="cell-tp">TP (抓對好人)</td>
-                <td class="cell-fn">FN (漏抓瑕疵!)</td>
-              </tr>
-              <tr>
-                <td><b>真 Negative</b></td>
-                <td class="cell-fp">FP (冤枉好人!)</td>
-                <td class="cell-tn">TN (放過壞人)</td>
-              </tr>
-            </table>
-
-            <div class="note-handwrite-p" style="margin-top: 6px;">
-              <span class="pen-blue">Precision (精確率)</span> = <span class="vf"><span class="vn">TP</span><span class="vd">TP + FP</span></span> ➔ 預測為正中，真為正！<br>
-              <span class="pen-red">Recall (召回率)</span> = <span class="vf"><span class="vn">TP</span><span class="vd">TP + FN</span></span> ➔ 真實為正中，抓出正！<br>
-              <span class="pen-purple">F1-Score</span> = <span class="vf"><span class="vn">2 × P × R</span><span class="vd">P + R</span></span> (調和平均數，專治偏科！)
-            </div>
-
-            <div class="sticky-note stick-pink" style="margin-top: 6px;">
-              <b>🔥 考場秒殺情境對應：</b><br>
-              • <span class="pen-red">漏抓代價慘重看 Recall</span>：癌症篩檢、鋼板裂痕瑕疵檢測！<br>
-              &nbsp;&nbsp;➔ 寧可錯打老公10次，絕不漏放一次出軌！<br>
-              • <span class="pen-blue">誤判代價極高看 Precision</span>：法官判死刑、垃圾信過濾！<br>
-              &nbsp;&nbsp;➔ 重要合約絕不能誤丟垃圾桶！
-            </div>
-
-            <div class="note-handwrite-p" style="margin-top: 5px;">
-              • <b>ROC 曲線</b>：X軸=<mark class="hl-yellow">FPR(假陽率)</mark>，Y軸=<mark class="hl-cyan">TPR(真陽率/Recall)</mark>！面積 AUC 越逼近 1 越神！
-            </div>
-          </div>
-
-          <div class="note-card-box">
-            <div class="note-sec-title">🏛️ 03. 神經網路架構 ＆ 歐盟 AI Act</div>
-            <div class="note-handwrite-p">
-              • <b>CNN (影像霸主)</b>：<span class="pen-blue">局部感受野 ＋ 權重共享</span> ➔ 拿放大鏡巡邏的警察，平移不變性！<br>
-              • <b>RNN (時序金魚)</b>：梯度消失 ➔ <b>LSTM 筆記本秘書</b>：<span class="pen-red">遺忘門(擦掉)、輸入門(記下)、輸出門(念出)</span>！<br>
-              • <b>Transformer</b>：<mark class="hl-yellow">Self-Attention</mark> ＋ 並行計算 ➔ 全知上帝視角會議室，每個字同時看全場！<br>
-              • <b>Sigmoid vs ReLU</b>：Sigmoid是煞車麻木老爺車(梯度消失)；ReLU是直男開關，負數0正數直出，死穴是 <span class="pen-red">Dying ReLU (一棒打昏永不醒)</span>！
-            </div>
-
-            <div class="sticky-note stick-green" style="margin-top: 8px;">
-              <b>⚖️ 歐盟《AI Act》四級風險管制 (新法必考)：</b><br>
-              🚫 <b>不可接受風險</b>：<span class="pen-red">【全面禁止】</span>社會信用評分、潛意識心智操縱、遠端生物辨識！<br>
-              ⚖️ <b>高風險</b>：<span class="pen-blue">【嚴格審查】</span>面試刷履歷、醫院開刀、自駕車煞車！<br>
-              💬 <b>有限風險</b>：<span class="pen-purple">【透明揭露】</span>客服聊天機器人、Deepfake 必須自首標記！<br>
-              🟢 <b>極小風險</b>：<span class="pen-green">【無限制】</span>垃圾郵件過濾、電玩怪獸！
-            </div>
+          <div class="note-big-sec">
+            <div class="note-big-title">貳、擬合狀態診斷與正則化解法（偏差 vs 方差權衡）</div>
+            <ul class="note-bullet-list">
+              <li>
+                <span class="pen-red">欠擬合 (Underfitting)</span>：訓練集低分、驗證集也低分 ➔ <span class="pen-red">High Bias (學力不足)</span>！<br>
+                ➔ <span class="quote-text">【裸考擺爛學渣】</span>：上課都在睡覺，平時作業 0 分，期末考也 0 分。解法：增加模型複雜度、增加神經元與網路層數、加入新特徵、減少正則化強度！
+              </li>
+              <li>
+                <span class="pen-red">過擬合 (Overfitting)</span>：訓練集 99 分、驗證集 60 分 ➔ <span class="pen-red">High Variance (死記硬背)</span>！<br>
+                ➔ <span class="quote-text">【死記硬背書呆子】</span>：連題目油漬污漬、選項順序都背下來！換個數字當場考 20 分，把雜訊當真理！解法：Dropout、L1/L2 正則化、Early Stopping、增加訓練資料量！
+              </li>
+              <li>
+                <mark class="hl-yellow">L1 正則化 (Lasso)</mark>：懲罰權重絕對值之和 ➔ <span class="quote-text">【斷捨離大掃除】</span>：不穿的衣服直接丟垃圾桶徹底清零，產生稀疏矩陣（Sparse），具備「特徵選擇」功能！
+              </li>
+              <li>
+                <mark class="hl-cyan">L2 正則化 (Ridge)</mark>：懲罰權重平方和 ➔ <span class="quote-text">【抽真空壓縮袋】</span>：衣服不扔，拿真空袋均勻縮小但全部保留，抑制權重極端值！
+              </li>
+              <li>
+                <span class="pen-purple">K-Fold 交叉驗證</span>：資料平分 K 份輪流驗證 ➔ <span class="quote-text">【輪流當值日生】</span>：避免單次切分運氣偏差，評估模型真正的泛化實力！
+              </li>
+            </ul>
           </div>
         </div>
 
         <div class="note-sheet-footer">
-          <span>考前 30 分鐘複習神卡 · 115 年度第四次 AI應用規劃師 · 科目一 (Z01-01)</span>
-          <span>林勝穩 專屬筆記 · 祝金榜題名！</span>
+          <span>115 年度第四次 AI應用規劃師 · 科目一 (Z01-01) 手寫重點筆記</span>
+          <span>林勝穩 專屬筆記 · 請翻面繼續閱讀 第 2 頁</span>
         </div>
         
+      </div>
+
+      <!-- ====== NOTE PAGE 2 OF 2 ====== -->
+      <div class="a4-sheet note-sheet note-sheet-strict">
+        <div class="binder-holes">
+          <div class="binder-hole"></div><div class="binder-hole"></div><div class="binder-hole"></div>
+          <div class="binder-hole"></div><div class="binder-hole"></div><div class="binder-hole"></div>
+        </div>
+        
+        <div class="note-top-header">
+          <div>
+            <span class="note-tag-topic"># iPAS AI規劃師學霸手寫筆記</span>
+            <span class="note-main-title">科目一：AI基礎概論 · 指標矩陣 ＆ 歐盟法規</span>
+          </div>
+          <div class="note-meta-date">
+            <span>📅 2026.11.07</span>
+            <span>📍 文藻外語大學</span>
+            <span class="note-page-pill">[Page 2 / 2]</span>
+          </div>
+        </div>
+
+        <div class="large-note-body">
+          <div class="note-big-sec">
+            <div class="note-big-title">參、混淆矩陣神算指標口訣（考場秒殺決策！）</div>
+            <ul class="note-bullet-list">
+              <li>
+                <mark class="hl-yellow">Recall 召回率（查全率）</mark> = <span class="mono pen-red">TP / (TP + FN)</span> ➔ 真實為正當中，抓出正的比例。<br>
+                ➔ <span class="quote-text">【抓出軌疑心病女友】</span>：只要有一根長頭髮先打再說！寧可錯打老公 10 次，絕不放過一次出軌（FN=0）！<br>
+                ➔ <span class="pen-red">★應用場景：漏抓代價慘重看 Recall</span>（癌症篩檢、鋼板裂痕瑕疵檢測，漏放一個工廠賠死）！
+              </li>
+              <li>
+                <mark class="hl-cyan">Precision 精確率（查準率）</mark> = <span class="mono pen-blue">TP / (TP + FP)</span> ➔ 預測為正當中，真正為正的比例。<br>
+                ➔ <span class="quote-text">【法官判死刑 / 垃圾信過濾】</span>：絕不能誤殺好人！重要客戶合約絕不能誤當垃圾信刪掉！<br>
+                ➔ <span class="pen-blue">★應用場景：誤判代價極高看 Precision</span>！
+              </li>
+              <li>
+                <mark class="hl-pink">Accuracy 準確率失真陷阱</mark>：<span class="quote-text">【黑心假驗孕棒】</span>100 人只有 1 人懷孕，假驗孕棒全猜沒懷孕準確率高達 99%，但根本抓不到病人！資料極度不平衡時 Accuracy 完全失真！
+              </li>
+              <li>
+                <span class="pen-purple">F1-Score</span>：Precision 與 Recall 的「調和平均數」<span class="mono">2*P*R/(P+R)</span>，專治嚴重偏科！
+              </li>
+              <li>
+                <span class="pen-green">ROC-AUC 曲線</span>：橫軸 <span class="mono">FPR (偽陽率)</span>，縱軸 <span class="mono">TPR (真陽率/Recall)</span>；曲線下面積 AUC 越逼近 1 越神！
+              </li>
+            </ul>
+          </div>
+
+          <div class="note-big-sec">
+            <div class="note-big-title">肆、深度神經網路三巨頭 ＆ 活化函數陷阱</div>
+            <ul class="note-bullet-list">
+              <li>
+                <mark class="hl-yellow">CNN (卷積網路)</mark>：影像首選！依賴「局部感受野」與「權重共享」➔ <span class="quote-text">【拿放大鏡巡邏的警察】</span>，具備平移不變性！
+              </li>
+              <li>
+                <mark class="hl-cyan">RNN / LSTM (時序網路)</mark>：RNN 跨長序列必定梯度消失 ➔ LSTM 筆記本秘書：<span class="pen-red">遺忘門(擦掉)、輸入門(記下)、輸出門(念出)</span>！
+              </li>
+              <li>
+                <mark class="hl-pink">Transformer</mark>：摒棄遞迴！靠 Self-Attention ＋ 並行計算 ➔ <span class="quote-text">【全知上帝視角會議室】</span>，每個字同時看全場！
+              </li>
+              <li>
+                <span class="pen-blue">Sigmoid 缺點</span>：兩端飽和導數趨近 0 ➔ <span class="quote-text">【踩煞車踩到麻木的老爺車】</span>，深層網路引發「梯度消失」！
+              </li>
+              <li>
+                <span class="pen-red">ReLU 優缺點</span>：正數區間導數恆為 1 計算極快 ➔ <span class="quote-text">【直男開關】</span>，但負數梯度為 0 易產生 <span class="pen-red">Dying ReLU (神經元死亡)</span>！
+              </li>
+            </ul>
+          </div>
+
+          <div class="note-big-sec">
+            <div class="note-big-title">伍、歐盟《AI Act》四級風險管制體系（新法必考！）</div>
+            <ul class="note-bullet-list">
+              <li>
+                🚫 <b>不可接受風險</b>：<span class="pen-red">【全面禁止】</span>政府社會信用評分、邪教潛意識心智操縱、即時遠端生物辨識！
+              </li>
+              <li>
+                ⚖️ <b>高風險</b>：<span class="pen-blue">【嚴格審查】</span>求職履歷篩選、醫療開刀診斷、司法審判、自駕車煞車系統！
+              </li>
+              <li>
+                💬 <b>有限風險</b>：<span class="pen-purple">【透明揭露義務】</span>AI 聊天客服機器人、Deepfake 換臉必須主動標記自首！
+              </li>
+              <li>
+                🟢 <b>極小風險</b>：<span class="pen-green">【無限制自由使用】</span>垃圾郵件過濾、電玩怪獸 AI！
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="note-sheet-footer">
+          <span>115 年度第四次 AI應用規劃師 · 科目一 (Z01-01) 手寫重點筆記</span>
+          <span>林勝穩 專屬筆記 · 本科筆記結束，祝 100 分通關！</span>
+        </div>
+        
+      </div>
     </div>
     
     </div>
@@ -4896,111 +4933,167 @@
     </div>
   </div>
 
-  <!-- ================= VIEW 5: SUBJECT 2 HANDWRITTEN NOTEBOOK (1-PAGE) ================= -->
+  <!-- ================= VIEW 5: SUBJECT 2 HANDWRITTEN NOTEBOOK (2-PAGE BIG FONT) ================= -->
   <div id="view-sub2-note" class="workspace-view">
     <div class="a4-wrapper">
       
-    <div class="a4-sheet note-sheet" id="sub2_note">
-      <div class="binder-holes">
-        <div class="binder-hole"></div>
-        <div class="binder-hole"></div>
-        <div class="binder-hole"></div>
-        <div class="binder-hole"></div>
-        <div class="binder-hole"></div>
-        <div class="binder-hole"></div>
-      </div>
-      
+    <div class="note-mode-container" id="sub2_note_container">
+      <!-- ====== NOTE PAGE 1 OF 2 ====== -->
+      <div class="a4-sheet note-sheet note-sheet-strict">
+        <div class="binder-holes">
+          <div class="binder-hole"></div><div class="binder-hole"></div><div class="binder-hole"></div>
+          <div class="binder-hole"></div><div class="binder-hole"></div><div class="binder-hole"></div>
+        </div>
+        
         <div class="note-top-header">
           <div>
-            <span class="note-tag-topic"># iPAS AI規劃師筆記</span>
-            <span class="note-main-title">科目二：生成式AI規劃 · 企業落地決策不死筆記</span>
+            <span class="note-tag-topic"># iPAS AI規劃師學霸手寫筆記</span>
+            <span class="note-main-title">科目二：生成式AI規劃 · 生成架構 ＆ 提示工程</span>
           </div>
           <div class="note-meta-date">
             <span>📅 2026.11.07</span>
             <span>📍 文藻外語大學</span>
+            <span class="note-page-pill">[Page 1 / 2]</span>
           </div>
         </div>
 
-        <div class="note-grid-container">
-          <div class="note-card-box">
-            <div class="note-sec-title">🎨 01. 生成式架構 ＆ 提示工程神技</div>
-            <div class="note-handwrite-p">
-              • <b>GAN (生成對抗)</b>：生成器 vs 鑑別器 ➔ <span class="quote-text">「假鈔販子 vs 警察」</span>！死穴：<span class="pen-red">模式崩潰 (Mode Collapse)</span>，只印百元鈔失去多樣性！<br>
-              • <b>Diffusion (擴散模型)</b>：加噪 ➔ 去噪。質量極高但多步採樣慢 ➔ <span class="quote-text">「米開朗基羅摳大理石沙子」</span>！<br>
-              • <b>LLM (自回歸)</b>：P(Next Token | Context) ➔ <span class="quote-text">「高級成語接龍大師」</span>！
-            </div>
-
-            <div class="sticky-note stick-yellow" style="margin-top: 8px;">
-              <b>🎯 提示工程 (Prompt) 四大神技：</b><br>
-              1. <b>Zero-shot</b>：<span class="pen-blue">直男點餐</span>，不給範例直接問！<br>
-              2. <b>Few-shot</b>：<span class="pen-purple">帶照片剪髮</span>，給 2~3 個範例規範格式！<br>
-              3. <b>CoT (思維鏈)</b>：<span class="pen-red">小學生列計算過程</span>，「Let's think step by step」拆解步驟，推理正確率暴衝！<br>
-              4. <b>ReAct</b>：<span class="pen-green">邊做邊查 Google 實習生</span>，思考 ➔ 行動(調工具) ➔ 觀察結果 ➔ 閉環回報！
-            </div>
+        <div class="large-note-body">
+          <div class="note-big-sec">
+            <div class="note-big-title">壹、生成式核心架構三大對抗（原理與死穴）</div>
+            <ul class="note-bullet-list">
+              <li>
+                <mark class="hl-yellow">GAN (生成對抗網路)</mark>：生成器 vs 鑑別器雙人博弈 ➔ <span class="quote-text">【假鈔販子 vs 驗鈔警察】</span>！<br>
+                ➔ <span class="pen-red">致命死穴：模式崩潰 (Mode Collapse)</span>！假鈔販子發現印百元鈔警察抓不到，這輩子就只印百元鈔，徹底喪失生成多樣性！
+              </li>
+              <li>
+                <mark class="hl-cyan">Diffusion (擴散模型)</mark>：前向逐步加高斯噪聲，反向逐步去噪還原圖像。<br>
+                ➔ <span class="quote-text">【米開朗基羅摳大理石沙子】</span>：把高清美女圖潑墨撒沙成純噪聲，再一步一步摳掉還原！畫質細膩但多步採樣耗時長！
+              </li>
+              <li>
+                <mark class="hl-pink">LLM 自回歸架構 (Autoregressive)</mark>：給定 Context 條件下預測 P(Next Token)。<br>
+                ➔ <span class="quote-text">【高級成語接龍大師】</span>：說天算機率吐氣，接著吐很，接著吐好……本質就是文字機率接龍！
+              </li>
+            </ul>
           </div>
 
-          <div class="note-card-box">
-            <div class="note-sec-title">🌳 02. 企業落地三難終極決策樹</div>
-            <div class="decision-tree-box">
-              <div class="tree-node">需求：我要導入生成式 AI？</div>
-              <div class="tree-branches">
-                <div class="branch-item">
-                  <b>A. 通用任務 / 原型驗證？</b><br>
-                  ➔ <mark class="hl-cyan">Prompt Engineering</mark><br>
-                  <span class="quote-text">「打電話問懂哥，問完即走零成本」</span>
-                </div>
-                <div class="branch-item" style="border-left: 2px solid #06b6d4;">
-                  <b>B. 私有動態資料 / 需引用出處？</b><br>
-                  ➔ <mark class="hl-yellow">RAG (檢索增強生成)</mark><br>
-                  <span class="quote-text">「開卷隨身帶最新百科，照抄絕不瞎掰」</span><br>
-                  <span class="pen-red">★企業知識庫、法規查核首選！</span>
-                </div>
-                <div class="branch-item" style="border-left: 2px solid #8b5cf6;">
-                  <b>C. 特定文風黑話 / 節省 Token？</b><br>
-                  ➔ <mark class="hl-pink">Fine-Tuning (微調)</mark><br>
-                  <span class="quote-text">「送少林寺閉關三年，刻進神經迴路」</span><br>
-                  ★LoRA：不練肌肉戴外骨骼，凍結主幹，推論零延遲！
-                </div>
-              </div>
-            </div>
-
-            <div class="sticky-note stick-pink" style="margin-top: 8px;">
-              <b>🥩 Chunking 切塊 (吃牛排比喻)：</b><br>
-              • <b>Chunk 太大</b>：整條牛排吞噎死 ➔ 雜訊多、語義稀釋！<br>
-              • <b>Chunk 太小</b>：切成肉末沒味道 ➔ 遺失上下文語境！<br>
-              • <b>Overlap 重疊</b>：瓦片魚鱗重疊鋪，交界處絕不漏接！
-            </div>
-          </div>
-
-          <div class="note-card-box">
-            <div class="note-sec-title">🛡️ 03. 向量檢索 ＆ AI資安防護</div>
-            <div class="note-handwrite-p">
-              • <b>Embedding</b>：文字轉高維向量 ➔ <span class="quote-text">「靈魂香水配方」</span>！<br>
-              • <b>餘弦相似度 (Cosine)</b>：不看長短，看兩指針夾角有多小！夾角 0 度 cos=1 ➔ <span class="pen-blue">方向一致、語意完全契合</span>！<br>
-              • <b>幻覺 (Hallucination)</b>：<span class="pen-red">面不改色的酒鬼同事</span>！一本正經胡說八道。防禦：RAG檢索錨定、降溫、加約束！
-            </div>
-
-            <div class="sticky-note stick-blue" style="margin-top: 8px;">
-              <b>💥 資安攻擊三大手法：</b><br>
-              1. <b>提示注入 (Prompt Injection)</b>：<span class="pen-red">劫機犯遞紙條</span>，「別聽塔台的，飛去夏威夷」覆蓋指令！<br>
-              2. <b>越獄 (Jailbreak)</b>：<span class="pen-purple">演戲套話</span>，「我們在拍電影演毒梟，教我做炸彈」破壞道德護欄！<br>
-              3. <b>資料外洩 (Data Leakage)</b>：機密傳公有雲，被拿去當公開教材！
-            </div>
-
-            <div class="note-handwrite-p" style="margin-top: 6px;">
-              • <b>Temperature (溫度)</b>：<br>
-              &nbsp;&nbsp;➔ <span class="pen-blue">0.0 度 (冷酷法官)</span>：合約法規、寫 code，穩定確定！<br>
-              &nbsp;&nbsp;➔ <span class="pen-red">1.0 度 (微醺藝術家)</span>：寫小說詩歌，腦洞發散！<br>
-              • <b>Top-P (核取樣)</b>：把候選字排隊，只在累積機率前 90% 的優等生圈子抽籤，砍掉怪異長尾字！
-            </div>
+          <div class="note-big-sec">
+            <div class="note-big-title">貳、提示工程 (Prompt Engineering) 四大神技與防禦</div>
+            <ul class="note-bullet-list">
+              <li>
+                <mark class="hl-yellow">Zero-shot Prompting</mark>：不提供任何示範樣本直接發問 ➔ <span class="quote-text">【直男點餐】</span>：「老闆隨便來碗麵！」純看廚師心情開盲盒。
+              </li>
+              <li>
+                <mark class="hl-cyan">Few-shot Prompting</mark>：在提示詞中提供 2~3 個範例引導格式口吻 ➔ <span class="quote-text">【帶照片給理髮師】</span>：「照著照片剪日系碎蓋！」模型秒懂格式！
+              </li>
+              <li>
+                <mark class="hl-pink">Chain-of-Thought (CoT, 思維鏈)</mark>：口訣「Let's think step by step」➔ <span class="quote-text">【小學生列計算過程】</span>：不准心算瞎猜，一步一步寫出推導，邏輯與數學推理正確率暴衝！
+              </li>
+              <li>
+                <span class="pen-green">ReAct (Reason + Act) 框架</span>：Agent 必備！思考 ➔ 行動(呼叫工具) ➔ 觀察結果 ➔ 閉環回報 ➔ <span class="quote-text">【邊做邊查 Google 的實習生】</span>！
+              </li>
+              <li>
+                <span class="pen-purple">結構化約束</span>：在 System Prompt 嚴格指定 JSON 格式輸出，方便後端系統程式碼解析。
+              </li>
+              <li>
+                <span class="pen-red">防止幻覺約束詞</span>：明定「若資料未提及請回答『不知道』，嚴禁自行捏造」➔ <span class="quote-text">【不懂就閉嘴的免責金牌】</span>！
+              </li>
+            </ul>
           </div>
         </div>
 
         <div class="note-sheet-footer">
-          <span>考前 30 分鐘複習神卡 · 115 年度第四次 AI應用規劃師 · 科目二 (Z01-02)</span>
-          <span>林勝穩 專屬筆記 · 祝金榜題名！</span>
+          <span>115 年度第四次 AI應用規劃師 · 科目二 (Z01-02) 手寫重點筆記</span>
+          <span>林勝穩 專屬筆記 · 請翻面繼續閱讀 第 2 頁</span>
         </div>
         
+      </div>
+
+      <!-- ====== NOTE PAGE 2 OF 2 ====== -->
+      <div class="a4-sheet note-sheet note-sheet-strict">
+        <div class="binder-holes">
+          <div class="binder-hole"></div><div class="binder-hole"></div><div class="binder-hole"></div>
+          <div class="binder-hole"></div><div class="binder-hole"></div><div class="binder-hole"></div>
+        </div>
+        
+        <div class="note-top-header">
+          <div>
+            <span class="note-tag-topic"># iPAS AI規劃師學霸手寫筆記</span>
+            <span class="note-main-title">科目二：生成式AI規劃 · 企業落地 ＆ 安全防禦</span>
+          </div>
+          <div class="note-meta-date">
+            <span>📅 2026.11.07</span>
+            <span>📍 文藻外語大學</span>
+            <span class="note-page-pill">[Page 2 / 2]</span>
+          </div>
+        </div>
+
+        <div class="large-note-body">
+          <div class="note-big-sec">
+            <div class="note-big-title">參、企業落地終極決策樹（Prompt vs RAG vs Fine-Tuning）</div>
+            <ul class="note-bullet-list">
+              <li>
+                <mark class="hl-yellow">1. Prompt Engineering</mark>：通用任務、原型驗證、零額外成本 ➔ <span class="quote-text">【打電話問懂哥】</span>，問完即走！
+              </li>
+              <li>
+                <mark class="hl-cyan">2. RAG (檢索增強生成)</mark>：私有動態資料庫、需頻繁更新、需精確引用出處 ➔ <span class="quote-text">【開卷考試隨身帶最新百科】</span>！<br>
+                ➔ 規章改了換本書抄即可，不用重洗大腦；對著課本抄絕不瞎掰（防幻覺最佳手段）！★企業知識庫首選！
+              </li>
+              <li>
+                <mark class="hl-pink">3. Fine-Tuning (微調)</mark>：特殊語法语氣、醫學/法律封閉領域黑話、節省 Prompt 長度 ➔ <span class="quote-text">【送少林寺閉關三年】</span>！<br>
+                ➔ 成本高昂且耗時；法規若改了，閉關學的東西可能當場作廢！
+              </li>
+              <li>
+                <span class="pen-blue">LoRA (低秩適應)</span>：凍結主幹權重，旁路訓練低階矩陣 ➔ <span class="quote-text">【不練肌肉只戴外骨骼手套】</span>！參數量 < 1%，省顯存 90%，微調後可直接合併原權重，推論零延遲！
+              </li>
+            </ul>
+          </div>
+
+          <div class="note-big-sec">
+            <div class="note-big-title">肆、向量資料庫檢索 ＆ Chunking 切塊秘笈</div>
+            <ul class="note-bullet-list">
+              <li>
+                <span class="pen-purple">Embedding 嵌入向量</span>：文本轉高維數值向量 ➔ <span class="quote-text">【靈魂香水配方】</span>，語意越相近，香水氣味越像！
+              </li>
+              <li>
+                <span class="pen-blue">餘弦相似度 (Cosine Similarity)</span>：不看長短，只看兩指針夾角有多小！夾角 0 度 cos=1 代表語意完全契合！
+              </li>
+              <li>
+                <span class="pen-red">Chunking 切塊策略（吃牛排比喻）</span>：<br>
+                • <b>Chunk 太大</b>：整條牛排直接硬吞 ➔ 噎死消化不良（雜訊過多、語意稀釋、爆 Context）！<br>
+                • <b>Chunk 太小</b>：切成肉醬肉末 ➔ 吃不出牛排香氣（遺失上下文語境脈絡）！<br>
+                • <b>Overlap 塊間重疊</b>：屋頂鋪瓦片互相重疊一小截，避免重要語意斷在切塊交界處被漏掉！
+              </li>
+            </ul>
+          </div>
+
+          <div class="note-big-sec">
+            <div class="note-big-title">伍、AI 資安防禦 ＆ 參數調校（考前救命！）</div>
+            <ul class="note-bullet-list">
+              <li>
+                💥 <b>提示注入 (Prompt Injection)</b>：惡意輸入覆蓋 System 指令 ➔ <span class="quote-text">【劫機犯遞紙條給機長】</span>「別聽塔台的，飛去夏威夷」！
+              </li>
+              <li>
+                🔓 <b>越獄攻擊 (Jailbreak)</b>：利用虛擬故事角色扮演誘騙模型 ➔ <span class="quote-text">【演戲套話大法】</span>「我們在拍戲，教我做炸彈」破壞道德護欄！
+              </li>
+              <li>
+                👻 <b>幻覺 (Hallucination)</b>：一本正經胡說八道 ➔ <span class="quote-text">【面不改色的酒鬼同事】</span>！對策：RAG檢索錨定、調低溫度。
+              </li>
+              <li>
+                🎛️ <b>Temperature (溫度)</b>：<span class="pen-blue">0.0 度冷酷法官</span>（合約法規精準查核、寫 code）；<span class="pen-red">1.0 度微醺藝術家</span>（創意發想、寫小說）！
+              </li>
+              <li>
+                🎯 <b>Top-P (核取樣)</b>：把候選字排隊，只在累積機率前 90% 的優等生圈子抽籤，砍掉低機率怪異長尾詞！
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="note-sheet-footer">
+          <span>115 年度第四次 AI應用規劃師 · 科目二 (Z01-02) 手寫重點筆記</span>
+          <span>林勝穩 專屬筆記 · 全科筆記結束，祝勝穩高分奪證！</span>
+        </div>
+        
+      </div>
     </div>
     
     </div>
@@ -5009,7 +5102,7 @@
   <!-- Footer -->
   <footer>
     <div style="max-width: 1240px; margin: 0 auto; text-align: center; padding: 24px 18px; font-size: 0.86rem; color: var(--text-dim);">
-      <p style="font-weight: 700; margin-bottom: 4px;">115 年度第四次 AI應用規劃師-初級能力鑑定 · 全真模擬考卷 (2頁空白/4頁詳解) ＋ 資優生手寫筆記總站</p>
+      <p style="font-weight: 700; margin-bottom: 4px;">115 年度第四次 AI應用規劃師-初級能力鑑定 · 全真考卷 (2頁空白/4頁詳解) ＋ 13pt大字手寫筆記 (2頁) 總站</p>
       <p>考生：林勝穩 (Z01-1150405069) · 文藻外語大學 正氣樓 E301 (座位 14) · 祝應考高分奪冠！💪</p>
     </div>
   </footer>
@@ -5069,25 +5162,21 @@
     // 3. Direct Print Method (Zero Error, Exact Page Break)
     function printDocument(docType) {
       if (docType === 'blank') {
-        // Ensure on exam view, set to blank 2-page mode
         if (currentMainView !== 'sub1-exam' && currentMainView !== 'sub2-exam') {
           switchMasterView('sub1-exam', document.querySelector('.view-btn.exam-mode'));
         }
         setAnswersMode(false);
       } else if (docType === 'solution') {
-        // Ensure on exam view, set to 4-page solution mode
         if (currentMainView !== 'sub1-exam' && currentMainView !== 'sub2-exam') {
           switchMasterView('sub1-exam', document.querySelector('.view-btn.exam-mode'));
         }
         setAnswersMode(true);
       } else if (docType === 'note') {
-        // Switch to note view
         if (currentMainView !== 'sub1-note' && currentMainView !== 'sub2-note') {
           switchMasterView('sub1-note', document.querySelector('.view-btn.note-mode'));
         }
       }
 
-      // Give browser 150ms to reflow before printing
       setTimeout(() => {
         window.print();
       }, 150);
@@ -5098,7 +5187,6 @@
     const sub2AnsKey = {"1": 1, "2": 1, "3": 1, "4": 1, "5": 1, "6": 1, "7": 1, "8": 1, "9": 1, "10": 2, "11": 0, "12": 1, "13": 0, "14": 1, "15": 1, "16": 1, "17": 1, "18": 1, "19": 1, "20": 1, "21": 1, "22": 1, "23": 0, "24": 1, "25": 1};
 
     function gradeAllExams() {
-      // Grade Subject 1
       let score1 = 0;
       let answered1 = 0;
       for (let no in sub1AnsKey) {
@@ -5115,7 +5203,6 @@
       const s1Disp = document.getElementById('sub1_score_display');
       if (s1Disp) s1Disp.innerText = score1;
 
-      // Grade Subject 2
       let score2 = 0;
       let answered2 = 0;
       for (let no in sub2AnsKey) {
@@ -5132,7 +5219,6 @@
       const s2Disp = document.getElementById('sub2_score_display');
       if (s2Disp) s2Disp.innerText = score2;
 
-      // Automatically switch to 4-Page Solution mode so student can see full explanations
       setAnswersMode(true);
 
       alert(`📝【測驗成績結算】\n\n• 科目一 (AI基礎概論)：${score1} / 100 分 (已答 ${answered1}/25 題)\n• 科目二 (生成式AI規劃)：${score2} / 100 分 (已答 ${answered2}/25 題)\n\n系統已為您自動展開【4 頁 A4 全彩詳解手冊】，絕不超出版面！`);
@@ -5168,7 +5254,6 @@
       body.setAttribute('data-theme', current === 'dark' ? 'light' : 'dark');
     }
 
-    // Switch Tabs in Lecture View
     function switchTab(tab, btn) {
       document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active', 'metaphor-mode'));
       btn.classList.add('active');
