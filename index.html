@@ -2,8 +2,8 @@
 <html lang="zh-TW">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>iPAS AI應用規劃師 (初級) 雙回 100 題全真模擬考卷 ＋ 13pt大字手寫筆記 ＋ 衝刺講義總站</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+  <title>iPAS AI應用規劃師 (初級) 雙回 100 題全真考卷 ＋ 13pt大字手寫筆記 ＋ 手機好讀衝刺站</title>
   
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -16,6 +16,7 @@
       font-display: swap;
     }
 
+    
     :root {
       --bg-primary: #0a0d14;
       --bg-secondary: #111726;
@@ -61,15 +62,588 @@
       line-height: 1.65;
       overflow-x: hidden;
       transition: background-color 0.3s ease, color 0.3s ease;
-      -webkit-print-color-adjust: exact;
-      print-color-adjust: exact;
     }
 
     code, pre, .mono {
       font-family: 'JetBrains Mono', monospace;
     }
 
-    /* ================= MASTER TOP CONTROL BAR ================= */
+    /* Top Sticky Notification & Timer */
+    .sticky-top-bar {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      background: var(--glass-bg);
+      border-bottom: 1px solid var(--border-color);
+      box-shadow: 0 4px 20px rgba(0,0,0,0.25);
+    }
+
+    .top-container {
+      max-width: 1240px;
+      margin: 0 auto;
+      padding: 10px 18px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .badge-live {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(239, 68, 68, 0.15);
+      color: var(--accent-red);
+      border: 1px solid rgba(239, 68, 68, 0.4);
+      padding: 3px 10px;
+      border-radius: 20px;
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+    }
+    .pulse-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background-color: var(--accent-red);
+      animation: pulse 1.5s infinite;
+    }
+    @keyframes pulse {
+      0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(239, 68, 68, 0.7); }
+      70% { transform: scale(1.1); box-shadow: 0 0 0 8px rgba(239, 68, 68, 0); }
+      100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(239, 68, 68, 0); }
+    }
+
+    .timer-group {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.88rem;
+      font-weight: 600;
+    }
+    .timer-unit {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      padding: 4px 8px;
+      border-radius: 6px;
+      color: var(--accent-cyan);
+      font-size: 0.95rem;
+      font-weight: 700;
+      min-width: 32px;
+      text-align: center;
+    }
+
+    .theme-toggle-btn {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      color: var(--text-main);
+      padding: 6px 12px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 0.85rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: var(--transition);
+    }
+    .theme-toggle-btn:hover {
+      border-color: var(--accent-cyan);
+      background: var(--bg-card-hover);
+    }
+
+    /* Hero Banner */
+    .hero {
+      max-width: 1240px;
+      margin: 24px auto 16px;
+      padding: 0 18px;
+    }
+    .hero-card {
+      background: linear-gradient(135deg, rgba(22, 32, 53, 0.9), rgba(15, 23, 42, 0.95));
+      border: 1px solid var(--glass-border);
+      border-radius: var(--radius);
+      padding: 24px 28px;
+      position: relative;
+      overflow: hidden;
+      box-shadow: var(--shadow-glow);
+    }
+    [data-theme="light"] .hero-card {
+      background: linear-gradient(135deg, #ffffff, #f1f5f9);
+    }
+    .hero-card::after {
+      content: "";
+      position: absolute;
+      top: -50%;
+      right: -20%;
+      width: 400px;
+      height: 400px;
+      background: radial-gradient(circle, rgba(59, 130, 246, 0.15) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .hero-title {
+      font-size: 1.75rem;
+      font-weight: 900;
+      letter-spacing: -0.5px;
+      margin-bottom: 8px;
+      background: linear-gradient(90deg, #38bdf8, #818cf8, #f472b6);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .hero-subtitle {
+      color: var(--text-muted);
+      font-size: 0.95rem;
+      margin-bottom: 18px;
+    }
+
+    .exam-meta-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 12px;
+      margin-top: 14px;
+    }
+    .meta-box {
+      background: rgba(0,0,0,0.25);
+      border: 1px solid var(--border-color);
+      border-radius: 8px;
+      padding: 10px 14px;
+    }
+    [data-theme="light"] .meta-box {
+      background: rgba(255, 255, 255, 0.7);
+    }
+    .meta-label {
+      font-size: 0.76rem;
+      color: var(--text-dim);
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+    .meta-val {
+      font-size: 0.95rem;
+      color: var(--text-main);
+      font-weight: 700;
+      margin-top: 3px;
+    }
+
+    /* Search & Nav Controls */
+    .controls-wrapper {
+      max-width: 1240px;
+      margin: 18px auto;
+      padding: 0 18px;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .search-input-box {
+      position: relative;
+      width: 100%;
+    }
+    .search-input {
+      width: 100%;
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      color: var(--text-main);
+      padding: 12px 16px 12px 42px;
+      border-radius: 10px;
+      font-size: 0.95rem;
+      outline: none;
+      transition: var(--transition);
+    }
+    .search-input:focus {
+      border-color: var(--accent-cyan);
+      box-shadow: 0 0 15px rgba(6, 182, 212, 0.25);
+    }
+    .search-icon {
+      position: absolute;
+      left: 14px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: var(--text-dim);
+      font-size: 1.1rem;
+      pointer-events: none;
+    }
+
+    /* Filter Tabs */
+    .tabs-nav {
+      display: flex;
+      gap: 8px;
+      overflow-x: auto;
+      padding-bottom: 4px;
+    }
+    .tab-btn {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      color: var(--text-muted);
+      padding: 9px 18px;
+      border-radius: 8px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      cursor: pointer;
+      white-space: nowrap;
+      transition: var(--transition);
+    }
+    .tab-btn:hover {
+      color: var(--text-main);
+      border-color: var(--accent-blue);
+    }
+    .tab-btn.active {
+      background: linear-gradient(135deg, #0284c7, #2563eb);
+      color: #ffffff;
+      border-color: transparent;
+      box-shadow: 0 4px 14px rgba(37, 99, 235, 0.35);
+    }
+    .tab-btn.active.metaphor-mode {
+      background: linear-gradient(135deg, #ec4899, #8b5cf6);
+      box-shadow: 0 4px 14px rgba(236, 72, 153, 0.35);
+    }
+
+    /* Content Layout */
+    .main-content {
+      max-width: 1240px;
+      margin: 0 auto 60px;
+      padding: 0 18px;
+    }
+
+    .section-header {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin: 32px 0 18px;
+      padding-bottom: 10px;
+      border-bottom: 2px solid var(--border-color);
+    }
+    .section-icon {
+      font-size: 1.4rem;
+    }
+    .section-title {
+      font-size: 1.35rem;
+      font-weight: 800;
+    }
+    .section-badge {
+      font-size: 0.75rem;
+      background: rgba(59, 130, 246, 0.15);
+      color: var(--accent-cyan);
+      border: 1px solid rgba(59, 130, 246, 0.3);
+      padding: 2px 8px;
+      border-radius: 12px;
+      font-weight: 600;
+    }
+
+    /* Card Grid */
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+      gap: 18px;
+    }
+    @media (max-width: 640px) {
+      .card-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .sprint-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius);
+      padding: 22px;
+      transition: var(--transition);
+      position: relative;
+    }
+    .sprint-card:hover {
+      border-color: var(--accent-blue);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(0,0,0,0.3);
+    }
+
+    .card-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 10px;
+      margin-bottom: 12px;
+    }
+    .card-title {
+      font-size: 1.08rem;
+      font-weight: 700;
+      color: var(--text-main);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .tag-danger {
+      background: rgba(239, 68, 68, 0.15);
+      color: var(--accent-red);
+      border: 1px solid rgba(239, 68, 68, 0.35);
+      font-size: 0.72rem;
+      padding: 2px 7px;
+      border-radius: 4px;
+      font-weight: 700;
+      white-space: nowrap;
+    }
+    .tag-hot {
+      background: rgba(245, 158, 11, 0.15);
+      color: var(--accent-gold);
+      border: 1px solid rgba(245, 158, 11, 0.35);
+      font-size: 0.72rem;
+      padding: 2px 7px;
+      border-radius: 4px;
+      font-weight: 700;
+      white-space: nowrap;
+    }
+
+    /* PK Battle Boxes */
+    .pk-container {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+      margin: 12px 0;
+    }
+    @media (max-width: 500px) {
+      .pk-container {
+        grid-template-columns: 1fr;
+      }
+    }
+    .pk-box {
+      border-radius: 8px;
+      padding: 10px 12px;
+      font-size: 0.85rem;
+    }
+    .pk-left {
+      background: rgba(59, 130, 246, 0.08);
+      border-left: 3px solid var(--accent-blue);
+    }
+    .pk-right {
+      background: rgba(139, 92, 246, 0.08);
+      border-left: 3px solid var(--accent-purple);
+    }
+    .pk-name {
+      font-weight: 700;
+      margin-bottom: 4px;
+      font-size: 0.88rem;
+    }
+    .pk-left .pk-name { color: #60a5fa; }
+    .pk-right .pk-name { color: #c084fc; }
+
+    /* Metaphor Box (爆笑神比喻專區) */
+    .metaphor-box {
+      background: linear-gradient(135deg, rgba(236, 72, 153, 0.1), rgba(139, 92, 246, 0.1));
+      border: 1px solid rgba(236, 72, 153, 0.3);
+      border-radius: 8px;
+      padding: 12px 14px;
+      margin-top: 14px;
+      font-size: 0.86rem;
+      position: relative;
+    }
+    [data-theme="light"] .metaphor-box {
+      background: #fdf2f8;
+      border-color: #f472b6;
+    }
+    .metaphor-title {
+      font-weight: 800;
+      color: #f472b6;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      margin-bottom: 6px;
+      font-size: 0.88rem;
+    }
+    [data-theme="light"] .metaphor-title {
+      color: #db2777;
+    }
+    .metaphor-text {
+      color: var(--text-main);
+      line-height: 1.55;
+    }
+
+    /* Trap & Tip Box */
+    .trap-box {
+      background: rgba(239, 68, 68, 0.08);
+      border: 1px dashed rgba(239, 68, 68, 0.4);
+      border-radius: 8px;
+      padding: 10px 12px;
+      margin-top: 10px;
+      font-size: 0.84rem;
+      color: #fca5a5;
+    }
+    [data-theme="light"] .trap-box {
+      color: #b91c1c;
+      background: #fef2f2;
+    }
+    .trap-title {
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      margin-bottom: 3px;
+    }
+
+    .key-formula {
+      background: #0f172a;
+      border: 1px solid var(--border-color);
+      border-radius: 6px;
+      padding: 8px 12px;
+      margin: 8px 0;
+      font-size: 0.86rem;
+      color: #38bdf8;
+    }
+    [data-theme="light"] .key-formula {
+      background: #e2e8f0;
+      color: #0369a1;
+    }
+
+    /* Quiz Module */
+    .quiz-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius);
+      padding: 24px;
+      margin-bottom: 18px;
+    }
+    .quiz-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 14px;
+      gap: 10px;
+    }
+    .quiz-q-num {
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: var(--accent-cyan);
+      background: rgba(6, 182, 212, 0.15);
+      padding: 2px 8px;
+      border-radius: 6px;
+    }
+    .quiz-q-text {
+      font-size: 1.02rem;
+      font-weight: 700;
+      margin-bottom: 16px;
+      line-height: 1.55;
+    }
+    .quiz-options {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    .quiz-opt-btn {
+      background: var(--bg-secondary);
+      border: 1px solid var(--border-color);
+      color: var(--text-main);
+      padding: 10px 14px;
+      border-radius: 8px;
+      text-align: left;
+      cursor: pointer;
+      font-size: 0.9rem;
+      transition: var(--transition);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .quiz-opt-btn:hover:not(:disabled) {
+      border-color: var(--accent-cyan);
+      background: var(--bg-card-hover);
+    }
+    .quiz-opt-btn.correct {
+      background: rgba(16, 185, 129, 0.15) !important;
+      border-color: var(--accent-green) !important;
+      color: var(--accent-green) !important;
+      font-weight: 700;
+    }
+    .quiz-opt-btn.wrong {
+      background: rgba(239, 68, 68, 0.15) !important;
+      border-color: var(--accent-red) !important;
+      color: var(--accent-red) !important;
+      font-weight: 700;
+    }
+
+    .quiz-explain {
+      display: none;
+      margin-top: 14px;
+      background: rgba(15, 23, 42, 0.8);
+      border-left: 3px solid var(--accent-cyan);
+      padding: 12px 14px;
+      border-radius: 6px;
+      font-size: 0.88rem;
+      color: var(--text-muted);
+    }
+    [data-theme="light"] .quiz-explain {
+      background: #f1f5f9;
+    }
+
+    .quiz-metaphor {
+      margin-top: 8px;
+      padding-top: 8px;
+      border-top: 1px dashed var(--border-color);
+      color: #f472b6;
+      font-weight: 600;
+    }
+    [data-theme="light"] .quiz-metaphor {
+      color: #db2777;
+    }
+
+    .quiz-toolbar {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 18px;
+      gap: 12px;
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      padding: 14px 20px;
+      border-radius: var(--radius);
+    }
+    .quiz-score-badge {
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--accent-gold);
+    }
+    .btn-action {
+      background: linear-gradient(135deg, #0284c7, #2563eb);
+      color: #fff;
+      border: none;
+      padding: 8px 16px;
+      border-radius: 8px;
+      font-weight: 700;
+      font-size: 0.88rem;
+      cursor: pointer;
+      transition: var(--transition);
+    }
+    .btn-action:hover {
+      box-shadow: 0 4px 14px rgba(37, 99, 235, 0.4);
+      transform: translateY(-1px);
+    }
+
+    /* Footer */
+    footer {
+      border-top: 1px solid var(--border-color);
+      background: var(--bg-secondary);
+      padding: 28px 18px;
+      text-align: center;
+      font-size: 0.85rem;
+      color: var(--text-dim);
+    }
+
+    @media print {
+      .sticky-top-bar, .controls-wrapper, .quiz-toolbar, .theme-toggle-btn {
+        display: none !important;
+      }
+      body {
+        background: #ffffff !important;
+        color: #000000 !important;
+      }
+      .sprint-card, .quiz-card {
+        border: 1px solid #ccc !important;
+        break-inside: avoid;
+        box-shadow: none !important;
+      }
+    }
+  
+
+    /* ================= MASTER TOP CONTROL BAR (DESKTOP & MOBILE) ================= */
     .master-bar {
       position: sticky;
       top: 0;
@@ -77,23 +651,66 @@
       background: #0f172a;
       border-bottom: 2px solid #2563eb;
       box-shadow: 0 4px 20px rgba(0,0,0,0.4);
-      padding: 8px 16px;
+      padding: 8px 14px;
     }
     .master-bar-container {
       max-width: 1480px;
       margin: 0 auto;
       display: flex;
-      flex-wrap: wrap;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    /* Row 1: App Header & Quick Action Buttons */
+    .master-top-row {
+      display: flex;
       justify-content: space-between;
       align-items: center;
-      gap: 10px;
+      gap: 8px;
+    }
+    .master-title-box {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .master-brand-logo {
+      font-size: 0.95rem;
+      font-weight: 900;
+      background: linear-gradient(90deg, #38bdf8, #818cf8, #f472b6);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      letter-spacing: -0.3px;
+      white-space: nowrap;
+    }
+    .candidate-pill {
+      background: rgba(59, 130, 246, 0.2);
+      border: 1px solid rgba(59, 130, 246, 0.4);
+      color: #93c5fd;
+      padding: 1px 7px;
+      border-radius: 12px;
+      font-size: 0.72rem;
+      font-weight: 700;
+      white-space: nowrap;
+    }
+
+    /* Row 2: Smooth Horizontal Scroll Tabs Bar (Thumb-Friendly on Phones) */
+    .view-scroll-wrapper {
+      width: 100%;
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: none;
+      padding-bottom: 2px;
+    }
+    .view-scroll-wrapper::-webkit-scrollbar {
+      display: none;
     }
 
     .view-switch-group {
       display: flex;
-      flex-wrap: wrap;
+      flex-wrap: nowrap;
       gap: 5px;
       align-items: center;
+      width: max-content;
     }
     .round-badge {
       font-size: 0.74rem;
@@ -102,6 +719,7 @@
       border-radius: 4px;
       margin: 0 2px;
       white-space: nowrap;
+      user-select: none;
     }
     .r1-badge {
       background: rgba(37, 99, 235, 0.2);
@@ -118,7 +736,7 @@
       border: 1.5px solid #334155;
       background: #1e293b;
       color: #cbd5e1;
-      padding: 4px 9px;
+      padding: 5px 10px;
       border-radius: 6px;
       font-size: 0.82rem;
       font-weight: 700;
@@ -128,6 +746,7 @@
       gap: 4px;
       transition: var(--transition);
       white-space: nowrap;
+      user-select: none;
     }
     .view-btn:hover {
       border-color: #38bdf8;
@@ -157,15 +776,15 @@
 
     .action-tools-group {
       display: flex;
-      flex-wrap: wrap;
       align-items: center;
-      gap: 6px;
+      gap: 5px;
+      flex-wrap: wrap;
     }
     .tool-btn {
       border: none;
-      padding: 5px 10px;
+      padding: 5px 9px;
       border-radius: 6px;
-      font-size: 0.82rem;
+      font-size: 0.8rem;
       font-weight: 700;
       cursor: pointer;
       color: #ffffff;
@@ -174,6 +793,7 @@
       gap: 4px;
       transition: var(--transition);
       white-space: nowrap;
+      user-select: none;
     }
     .tool-btn:hover { opacity: 0.9; transform: translateY(-1px); }
     .btn-grade { background: #10b981; }
@@ -192,7 +812,7 @@
       padding: 0 3mm;
     }
 
-    /* ================= STRICT A4 SHEET CONTAINER ================= */
+    /* ================= STRICT A4 SHEET CONTAINER (DESKTOP DEFAULT) ================= */
     .a4-sheet {
       width: 210mm;
       min-height: 290mm;
@@ -263,7 +883,7 @@
       font-family: "Microsoft JhengHei", sans-serif;
     }
 
-    /* 2 Columns Exam Layout */
+    /* 2 Columns Exam Layout (Desktop) */
     .exam-two-col {
       column-count: 2;
       column-gap: 8mm;
@@ -307,14 +927,16 @@
       gap: 5px;
       cursor: pointer;
       color: #1e293b;
-      padding: 1px 3px;
-      border-radius: 3px;
+      padding: 2px 4px;
+      border-radius: 4px;
+      transition: background 0.15s ease;
     }
     .exam-opt-label:hover {
       background: #f1f5f9;
     }
     .exam-opt-label input[type="radio"] {
       margin-top: 3px;
+      cursor: pointer;
     }
     .opt-correct {
       background: #fef08a !important;
@@ -490,9 +1112,311 @@
       color: #475569;
     }
 
-    /* ================= 100% PRECISE A4 PRINT MEDIA RULES ================= */
+    /* ================= MOBILE BOTTOM FLOATING ACTION BAR ================= */
+    .mobile-float-bar {
+      display: none;
+      position: fixed;
+      bottom: 12px;
+      left: 12px;
+      right: 12px;
+      z-index: 990;
+      background: rgba(15, 23, 42, 0.94);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid rgba(59, 130, 246, 0.4);
+      border-radius: 30px;
+      padding: 6px 10px;
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.5);
+      justify-content: space-between;
+      align-items: center;
+      gap: 6px;
+    }
+    .mobile-float-btn {
+      border: none;
+      border-radius: 20px;
+      padding: 7px 12px;
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: #ffffff;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      transition: var(--transition);
+      white-space: nowrap;
+    }
+    .mobile-btn-grade { background: #10b981; }
+    .mobile-btn-ans { background: #8b5cf6; }
+    .mobile-btn-top { background: #334155; }
+
+    /* ================= 📱 MOBILE-FIRST RESPONSIVE ENGINE (MAX-WIDTH: 768PX) ================= */
+    @media screen and (max-width: 768px) {
+      /* 1. Global Viewport Adjustments */
+      body {
+        font-size: 14.5px;
+        padding-bottom: 70px; /* Space for mobile floating bar */
+      }
+
+      /* Show mobile floating bar */
+      .mobile-float-bar {
+        display: flex;
+      }
+
+      /* 2. Master Top Control Bar (Mobile) */
+      .master-bar {
+        padding: 8px 10px 6px 10px;
+      }
+      .master-top-row {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+      }
+      .master-brand-logo {
+        font-size: 0.9rem;
+      }
+      .candidate-pill {
+        font-size: 0.68rem;
+        padding: 1px 5px;
+      }
+      .action-tools-group .btn-print-blank,
+      .action-tools-group .btn-print-sol,
+      .action-tools-group .btn-print-note {
+        display: none !important; /* Hide direct paper print buttons on phone to keep top bar tidy */
+      }
+      .action-tools-group {
+        gap: 4px;
+      }
+      .tool-btn {
+        padding: 4px 8px;
+        font-size: 0.76rem;
+      }
+
+      /* 3. A4 Sheets -> Native Fluid Mobile Cards */
+      .a4-wrapper {
+        width: 100% !important;
+        max-width: 100% !important;
+        margin: 10px 0 30px 0 !important;
+        padding: 0 8px !important;
+      }
+      .a4-sheet {
+        width: 100% !important;
+        max-width: 100% !important;
+        min-height: auto !important;
+        height: auto !important;
+        margin: 0 0 16px 0 !important;
+        padding: 16px 12px !important;
+        box-shadow: 0 3px 14px rgba(0, 0, 0, 0.08) !important;
+        border-radius: 14px !important;
+        border: 1px solid #cbd5e1 !important;
+      }
+
+      /* 4. Switch from 2-Column Desktop to Single-Column Stream on Phone */
+      .exam-two-col {
+        column-count: 1 !important;
+        column-gap: 0 !important;
+        column-rule: none !important;
+        display: flex !important;
+        flex-direction: column !important;
+        gap: 12px !important;
+      }
+
+      /* 5. Exam Header on Mobile */
+      .exam-title-box {
+        padding-bottom: 6px !important;
+        margin-bottom: 8px !important;
+      }
+      .exam-org-title {
+        font-size: 10px !important;
+      }
+      .exam-main-title {
+        font-size: 15px !important;
+        line-height: 1.35 !important;
+      }
+      .exam-sub-title {
+        font-size: 12.5px !important;
+        margin-bottom: 4px !important;
+      }
+      .exam-meta-line {
+        flex-direction: column !important;
+        gap: 3px !important;
+        font-size: 11.5px !important;
+        padding-top: 5px !important;
+      }
+      .exam-score-box {
+        align-self: flex-start !important;
+        font-size: 12.5px !important;
+        margin-top: 2px !important;
+        padding: 1px 7px !important;
+      }
+      .exam-running-header {
+        flex-direction: column !important;
+        gap: 3px !important;
+        font-size: 11px !important;
+      }
+
+      /* 6. Touch-Friendly Question Cards */
+      .exam-q-box {
+        background: #ffffff !important;
+        border: 1px solid #e2e8f0 !important;
+        border-radius: 10px !important;
+        padding: 12px 10px 14px 10px !important;
+        margin-bottom: 8px !important;
+        box-shadow: 0 1px 4px rgba(0,0,0,0.03) !important;
+      }
+      .exam-q-text {
+        font-size: 15px !important;
+        line-height: 1.55 !important;
+        margin-bottom: 8px !important;
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Noto Sans TC", sans-serif !important;
+        color: #0f172a !important;
+      }
+      .q-no {
+        font-size: 15.5px !important;
+      }
+
+      /* Thumb-Friendly Option Tap Target (Large Card) */
+      .exam-q-options {
+        gap: 6px !important;
+      }
+      .exam-opt-label {
+        padding: 10px 12px !important;
+        border-radius: 8px !important;
+        background: #f8fafc !important;
+        border: 1.5px solid #e2e8f0 !important;
+        font-size: 14.5px !important;
+        line-height: 1.4 !important;
+        min-height: 44px !important;
+        display: flex !important;
+        align-items: center !important;
+        gap: 8px !important;
+      }
+      .exam-opt-label:active {
+        background: #e0f2fe !important;
+        border-color: #38bdf8 !important;
+      }
+      .exam-opt-label input[type="radio"] {
+        width: 19px !important;
+        height: 19px !important;
+        margin-top: 0 !important;
+        flex-shrink: 0 !important;
+        accent-color: #2563eb !important;
+      }
+      .opt-correct {
+        background: #fef08a !important;
+        border-color: #eab308 !important;
+        color: #854d0e !important;
+        font-weight: 800 !important;
+      }
+      .ans-badge {
+        font-size: 13.5px !important;
+        display: block !important;
+        margin-top: 4px !important;
+      }
+      .exam-q-exp {
+        font-size: 13.5px !important;
+        line-height: 1.5 !important;
+        padding: 8px 10px !important;
+        margin-top: 8px !important;
+        border-radius: 6px !important;
+      }
+      .exp-metaphor {
+        font-size: 13.5px !important;
+        line-height: 1.5 !important;
+        padding: 8px 10px !important;
+        margin-top: 6px !important;
+        border-radius: 6px !important;
+      }
+
+      /* 7. Kokuyo Handwritten Notes on Mobile (Reclaim Space) */
+      .binder-holes {
+        display: none !important; /* Hide binder holes on phone to reclaim full screen width! */
+      }
+      .note-sheet {
+        padding: 16px 12px !important;
+        border-radius: 12px !important;
+        width: 100% !important;
+        min-height: auto !important;
+      }
+      .note-top-header {
+        flex-direction: column !important;
+        align-items: flex-start !important;
+        gap: 4px !important;
+        padding-bottom: 6px !important;
+      }
+      .note-tag-topic {
+        font-size: 12px !important;
+      }
+      .note-main-title {
+        font-size: 17px !important;
+        line-height: 1.35 !important;
+      }
+      .note-meta-date {
+        font-size: 11px !important;
+        gap: 6px !important;
+      }
+      .note-big-sec {
+        padding: 10px 8px !important;
+        margin-bottom: 10px !important;
+        border-radius: 8px !important;
+      }
+      .note-big-title {
+        font-size: 15px !important;
+        margin-bottom: 8px !important;
+      }
+      .note-bullet-list {
+        font-size: 14.5px !important;
+        line-height: 1.6 !important;
+        gap: 10px !important;
+      }
+      .note-sheet-footer {
+        flex-direction: column !important;
+        gap: 2px !important;
+        font-size: 10.5px !important;
+        text-align: center !important;
+      }
+
+      /* 8. Lecture View on Mobile */
+      .hero {
+        margin: 12px auto !important;
+        padding: 0 10px !important;
+      }
+      .hero-card {
+        padding: 16px 14px !important;
+        border-radius: 10px !important;
+      }
+      .hero-title {
+        font-size: 1.35rem !important;
+      }
+      .hero-subtitle {
+        font-size: 0.85rem !important;
+      }
+      .exam-meta-grid {
+        grid-template-columns: 1fr 1fr !important;
+        gap: 8px !important;
+      }
+      .controls-wrapper {
+        margin: 12px auto !important;
+        padding: 0 10px !important;
+      }
+      .main-content {
+        padding: 0 10px !important;
+        margin-bottom: 40px !important;
+      }
+      .card-grid {
+        grid-template-columns: 1fr !important;
+        gap: 12px !important;
+      }
+      .sprint-card {
+        padding: 16px 14px !important;
+      }
+      .pk-container {
+        grid-template-columns: 1fr !important;
+      }
+    }
+
+    /* ================= 100% PRECISE A4 PRINT MEDIA RULES (ZERO REGRESSION) ================= */
     @media print {
-      .master-bar, .sticky-top-bar, .controls-wrapper, .quiz-toolbar, .theme-toggle-btn {
+      .master-bar, .sticky-top-bar, .controls-wrapper, .quiz-toolbar, .theme-toggle-btn, .mobile-float-bar {
         display: none !important;
       }
       body {
@@ -529,8 +1453,17 @@
         page-break-after: avoid !important;
         break-after: avoid !important;
       }
+      .exam-two-col {
+        column-count: 2 !important;
+        column-gap: 8mm !important;
+        column-rule: 1px dashed #cbd5e1 !important;
+        display: block !important;
+      }
       .note-sheet {
         padding: 6mm 10mm 5mm 15mm !important;
+      }
+      .binder-holes {
+        display: flex !important;
       }
     }
   </style>
@@ -541,61 +1474,71 @@
   <header class="master-bar">
     <div class="master-bar-container">
       
-      <!-- Views Switcher -->
-      <div class="view-switch-group">
-        <button class="view-btn active" onclick="switchMasterView('lecture', this)">
-          📌 衝刺講義總覽
-        </button>
+      <!-- Row 1: Brand & Action Tools -->
+      <div class="master-top-row">
+        <div class="master-title-box">
+          <span class="master-brand-logo">⚡ iPAS AI衝刺雙回100題</span>
+          <span class="candidate-pill">林勝穩 (座位14)</span>
+        </div>
 
-        <span class="round-badge r1-badge">【第 1 回 必殺 50 題】</span>
-        <button class="view-btn exam-mode" onclick="switchMasterView('sub1-exam', this)">
-          📄 科一(R1) 考卷
-        </button>
-        <button class="view-btn note-mode" onclick="switchMasterView('sub1-note', this)">
-          📝 科一(R1) 筆記
-        </button>
-        <button class="view-btn exam-mode" onclick="switchMasterView('sub2-exam', this)">
-          📄 科二(R1) 考卷
-        </button>
-        <button class="view-btn note-mode" onclick="switchMasterView('sub2-note', this)">
-          📝 科二(R1) 筆記
-        </button>
-
-        <span class="round-badge r2-badge">【第 2 回 強化 50 題 🔥】</span>
-        <button class="view-btn exam-mode r2-btn" onclick="switchMasterView('sub1-r2-exam', this)">
-          📄 科一(R2) 考卷
-        </button>
-        <button class="view-btn note-mode r2-btn" onclick="switchMasterView('sub1-r2-note', this)">
-          📝 科一(R2) 筆記
-        </button>
-        <button class="view-btn exam-mode r2-btn" onclick="switchMasterView('sub2-r2-exam', this)">
-          📄 科二(R2) 考卷
-        </button>
-        <button class="view-btn note-mode r2-btn" onclick="switchMasterView('sub2-r2-note', this)">
-          📝 科二(R2) 筆記
-        </button>
+        <div class="action-tools-group">
+          <button class="tool-btn btn-grade" onclick="gradeAllExams()" title="線上批改測驗分數 (雙回 100 題完整結算)">
+            ✍️ 批改計分
+          </button>
+          <button class="tool-btn btn-toggle-ans" id="btnToggleAns" onclick="toggleAnswersMode()" title="一鍵切換 2頁空白卷 ↔ 4頁全彩詳解手冊">
+            👁️ 詳解手冊
+          </button>
+          <!-- Desktop Print Buttons -->
+          <button class="tool-btn btn-print-blank" onclick="printDocument('blank')" title="一鍵列印當前考卷之 A4 雙面空白考卷 (2頁)">
+            🖨️ 空白卷
+          </button>
+          <button class="tool-btn btn-print-sol" onclick="printDocument('solution')" title="一鍵列印當前考卷之 A4 全彩詳解手冊 (4頁，絕不超版)">
+            🖨️ 詳解冊
+          </button>
+          <button class="tool-btn btn-print-note" onclick="printDocument('note')" title="一鍵列印當前筆記之 A4 13pt大字手寫筆記 (2頁)">
+            🖨️ 手寫筆記
+          </button>
+          <button class="tool-btn" style="background: #334155;" onclick="toggleTheme()" title="切換深淺外觀">
+            ☀️/🌙
+          </button>
+        </div>
       </div>
 
-      <!-- Action Tools: Grading, Answers & Direct Print -->
-      <div class="action-tools-group">
-        <button class="tool-btn btn-grade" onclick="gradeAllExams()" title="線上批改測驗分數 (雙回 100 題完整結算)">
-          ✍️ 批改計分
-        </button>
-        <button class="tool-btn btn-toggle-ans" id="btnToggleAns" onclick="toggleAnswersMode()" title="一鍵切換 2頁空白卷 ↔ 4頁全彩詳解手冊">
-          👁️ 顯示詳解手冊(4頁)
-        </button>
-        <button class="tool-btn btn-print-blank" onclick="printDocument('blank')" title="一鍵列印當前考卷之 A4 雙面空白考卷 (2頁)">
-          🖨️ 列印空白卷 (2頁)
-        </button>
-        <button class="tool-btn btn-print-sol" onclick="printDocument('solution')" title="一鍵列印當前考卷之 A4 全彩詳解手冊 (4頁，絕不超版)">
-          🖨️ 列印詳解手冊 (4頁)
-        </button>
-        <button class="tool-btn btn-print-note" onclick="printDocument('note')" title="一鍵列印當前筆記之 A4 13pt大字手寫筆記 (2頁)">
-          🖨️ 列印手寫筆記 (2頁)
-        </button>
-        <button class="tool-btn" style="background: #334155;" onclick="toggleTheme()" title="切換深淺外觀">
-          ☀️/🌙
-        </button>
+      <!-- Row 2: Thumb-Friendly Horizontal Scroll Tabs -->
+      <div class="view-scroll-wrapper">
+        <div class="view-switch-group">
+          <button class="view-btn active" onclick="switchMasterView('lecture', this)">
+            📌 衝刺講義總覽
+          </button>
+
+          <span class="round-badge r1-badge">【第 1 回 必殺】</span>
+          <button class="view-btn exam-mode" onclick="switchMasterView('sub1-exam', this)">
+            📄 科一(R1) 考卷
+          </button>
+          <button class="view-btn note-mode" onclick="switchMasterView('sub1-note', this)">
+            📝 科一(R1) 筆記
+          </button>
+          <button class="view-btn exam-mode" onclick="switchMasterView('sub2-exam', this)">
+            📄 科二(R1) 考卷
+          </button>
+          <button class="view-btn note-mode" onclick="switchMasterView('sub2-note', this)">
+            📝 科二(R1) 筆記
+          </button>
+
+          <span class="round-badge r2-badge">【第 2 回 強化 🔥】</span>
+          <button class="view-btn exam-mode r2-btn" onclick="switchMasterView('sub1-r2-exam', this)">
+            📄 科一(R2) 考卷
+          </button>
+          <button class="view-btn note-mode r2-btn" onclick="switchMasterView('sub1-r2-note', this)">
+            📝 科一(R2) 筆記
+          </button>
+          <button class="view-btn exam-mode r2-btn" onclick="switchMasterView('sub2-r2-exam', this)">
+            📄 科二(R2) 考卷
+          </button>
+          <button class="view-btn note-mode r2-btn" onclick="switchMasterView('sub2-r2-note', this)">
+            📝 科二(R2) 筆記
+          </button>
+        </div>
       </div>
 
     </div>
@@ -9285,10 +10228,23 @@
     </div>
   </div>
 
+  <!-- Mobile Floating Quick Action Bar (Only on phones) -->
+  <div class="mobile-float-bar">
+    <button class="mobile-float-btn mobile-btn-grade" onclick="gradeAllExams()">
+      ✍️ 交卷計分
+    </button>
+    <button class="mobile-float-btn mobile-btn-ans" onclick="toggleAnswersMode()">
+      👁️ 詳解切換
+    </button>
+    <button class="mobile-float-btn mobile-btn-top" onclick="window.scrollTo({ top: 0, behavior: 'smooth' })">
+      🔝 置頂
+    </button>
+  </div>
+
   <!-- Footer -->
   <footer>
     <div style="max-width: 1240px; margin: 0 auto; text-align: center; padding: 24px 18px; font-size: 0.86rem; color: var(--text-dim);">
-      <p style="font-weight: 700; margin-bottom: 4px;">115 年度第四次 AI應用規劃師-初級能力鑑定 · 雙回 100 題全真模擬考卷 (2頁空白/4頁詳解) ＋ 13pt大字手寫筆記 (2頁) 總站</p>
+      <p style="font-weight: 700; margin-bottom: 4px;">115 年度第四次 AI應用規劃師-初級能力鑑定 · 雙回 100 題全真模擬考卷 ＋ 13pt大字手寫筆記 ＋ 手機好讀衝刺站</p>
       <p>考生：林勝穩 (Z01-1150405069) · 文藻外語大學 正氣樓 E301 (座位 14) · 祝應考高分奪冠！💪</p>
     </div>
   </footer>
@@ -9312,7 +10268,7 @@
       }
     }
 
-    // 2. Answer Mode Switcher (Smart Linking: 2-Page Blank vs 4-Page Solution)
+    // 2. Answer Mode Switcher (Smart Linking: Blank vs Solution)
     function setAnswersMode(showSol) {
       isSolutionMode = showSol;
       const btn = document.getElementById('btnToggleAns');
@@ -9326,7 +10282,7 @@
 
       if (isSolutionMode) {
         if (btn) {
-          btn.innerText = '👁️ 切換空白考卷(2頁)';
+          btn.innerText = '👁️ 空白考卷';
           btn.style.background = '#ea580c';
         }
         containers.forEach(c => {
@@ -9338,7 +10294,7 @@
         document.body.classList.add('show-ans');
       } else {
         if (btn) {
-          btn.innerText = '👁️ 顯示詳解手冊(4頁)';
+          btn.innerText = '👁️ 詳解手冊';
           btn.style.background = '#8b5cf6';
         }
         containers.forEach(c => {
@@ -9420,15 +10376,15 @@
       alert(`📝【100 題全真測驗成績結算報告】\n\n` +
             `🎯【第一回 必殺 50 題】：\n` +
             `  • 科目一 (AI基礎概論)：${s1.score} / 100 分 (已作答 ${s1.answered}/25 題)\n` +
-            `  • 科目二 (生成式AI規劃)：${s2.score} / 100 分 (已答 ${s2.answered}/25 題)\n\n` +
+            `  • 科目二 (生成式AI規劃)：${s2.score} / 100 分 (已作答 ${s2.answered}/25 題)\n\n` +
             `🔥【第二回 強化 50 題】：\n` +
             `  • 科目一 (AI基礎概論)：${s1_r2.score} / 100 分 (已作答 ${s1_r2.answered}/25 題)\n` +
-            `  • 科目二 (生成式AI規劃)：${s2_r2.score} / 100 分 (已答 ${s2_r2.answered}/25 題)\n\n` +
+            `  • 科目二 (生成式AI規劃)：${s2_r2.score} / 100 分 (已作答 ${s2_r2.answered}/25 題)\n\n` +
             `🏆 總累計作答：${totalAnswered} / 100 題 | 雙回四科總分：${totalScore} / 400 分！\n\n` +
-            `系統已為您自動展開【4 頁 A4 全彩詳解手冊】，每題附深度解析與生活神比喻！`);
+            `系統已為您自動展開【全彩詳解手冊】，每題附官方深度解析與生活神比喻！`);
     }
 
-    // 5. Timer & Theme from original script
+    // 5. Timer & Theme
     function updateCountdown() {
       const examDate = new Date('2026-11-07T13:30:00+08:00').getTime();
       const now = new Date().getTime();
