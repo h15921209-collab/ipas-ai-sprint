@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
-  <title>iPAS AI應用規劃師 (初級) 雙回 100 題全真考卷 ＋ 13pt大字手寫筆記 ＋ 手機觀看模式</title>
+  <title>iPAS AI應用規劃師 (初級) 雙回 100 題全真考卷 ＋ 13pt大字手寫筆記 ＋ 手機好讀衝刺站</title>
   
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -651,7 +651,7 @@
       background: #0f172a;
       border-bottom: 2px solid #2563eb;
       box-shadow: 0 4px 20px rgba(0,0,0,0.4);
-      padding: 8px 14px;
+      padding: 8px 12px;
     }
     .master-bar-container {
       max-width: 1480px;
@@ -671,7 +671,7 @@
     .master-title-box {
       display: flex;
       align-items: center;
-      gap: 8px;
+      gap: 6px;
     }
     .master-brand-logo {
       font-size: 0.95rem;
@@ -686,23 +686,114 @@
       background: rgba(59, 130, 246, 0.2);
       border: 1px solid rgba(59, 130, 246, 0.4);
       color: #93c5fd;
-      padding: 1px 7px;
+      padding: 1px 6px;
       border-radius: 12px;
       font-size: 0.72rem;
       font-weight: 700;
       white-space: nowrap;
     }
 
-    /* Row 2: Smooth Horizontal Scroll Tabs Bar (Thumb-Friendly on Phones) */
+    .action-tools-group {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      flex-wrap: wrap;
+    }
+    .tool-btn {
+      border: none;
+      padding: 5px 9px;
+      border-radius: 6px;
+      font-size: 0.8rem;
+      font-weight: 700;
+      cursor: pointer;
+      color: #ffffff;
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      transition: var(--transition);
+      white-space: nowrap;
+      user-select: none;
+    }
+    .tool-btn:hover { opacity: 0.9; transform: translateY(-1px); }
+    .btn-grade { background: #10b981; }
+    .btn-toggle-ans { background: #8b5cf6; }
+    .btn-print-blank { background: #2563eb; }
+    .btn-print-sol { background: #dc2626; }
+    .btn-print-note { background: #0d9488; }
+    .btn-mobile-toggle {
+      background: linear-gradient(135deg, #0284c7, #0369a1);
+      box-shadow: 0 0 10px rgba(2, 132, 199, 0.4);
+      border: 1px solid #38bdf8;
+    }
+
+    /* Prominent Mobile Menu Trigger Button */
+    .btn-mobile-menu-trigger {
+      background: linear-gradient(135deg, #f59e0b, #d97706) !important;
+      color: #ffffff !important;
+      font-weight: 900 !important;
+      border: 1px solid #fde047 !important;
+      box-shadow: 0 0 10px rgba(245, 158, 11, 0.5);
+    }
+
+    /* Row 2: Mobile Dedicated Dropdown Picker (100% Visible & Native on Phones) */
+    .mobile-picker-row {
+      display: none;
+      margin-top: 2px;
+    }
+    .mobile-picker-wrapper {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      background: #1e293b;
+      border: 1.5px solid #38bdf8;
+      border-radius: 8px;
+      padding: 4px 8px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.25);
+    }
+    .picker-label {
+      font-size: 0.8rem;
+      color: #38bdf8;
+      font-weight: 800;
+      white-space: nowrap;
+    }
+    .mobile-picker-select {
+      flex: 1;
+      background: transparent;
+      color: #ffffff;
+      border: none;
+      font-size: 0.88rem;
+      font-weight: 800;
+      outline: none;
+      cursor: pointer;
+      padding: 4px 0;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      overflow: hidden;
+    }
+    .mobile-picker-select option, .mobile-picker-select optgroup {
+      background: #0f172a;
+      color: #ffffff;
+    }
+    .picker-open-drawer-btn {
+      background: linear-gradient(135deg, #f59e0b, #ea580c);
+      color: #ffffff;
+      border: none;
+      padding: 5px 9px;
+      border-radius: 6px;
+      font-size: 0.78rem;
+      font-weight: 800;
+      white-space: nowrap;
+      cursor: pointer;
+    }
+
+    /* Row 3: Desktop Horizontal Tabs Bar */
     .view-scroll-wrapper {
       width: 100%;
       overflow-x: auto;
       -webkit-overflow-scrolling: touch;
-      scrollbar-width: none;
+      scrollbar-width: thin;
+      scrollbar-color: #3b82f6 #1e293b;
       padding-bottom: 2px;
-    }
-    .view-scroll-wrapper::-webkit-scrollbar {
-      display: none;
     }
 
     .view-switch-group {
@@ -774,37 +865,124 @@
       box-shadow: 0 0 12px rgba(234, 88, 12, 0.6);
     }
 
-    .action-tools-group {
+    /* ================= FULLSCREEN MOBILE MENU DRAWER ================= */
+    .mobile-drawer-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      z-index: 99999;
+      background: rgba(10, 13, 20, 0.88);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      overflow-y: auto;
+      -webkit-overflow-scrolling: touch;
+      padding: 14px 10px 40px 10px;
+    }
+    .mobile-drawer-overlay.open {
+      display: block;
+      animation: drawerFadeIn 0.22s ease-out;
+    }
+    @keyframes drawerFadeIn {
+      from { opacity: 0; transform: translateY(-12px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .mobile-drawer-content {
+      max-width: 600px;
+      margin: 0 auto;
+      background: #111827;
+      border: 1.5px solid #374151;
+      border-radius: 16px;
+      padding: 16px 14px;
+      box-shadow: 0 20px 45px rgba(0, 0, 0, 0.7);
+      color: #f1f5f9;
+    }
+    .mobile-drawer-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1.5px solid #1f2937;
+      padding-bottom: 12px;
+      margin-bottom: 14px;
+    }
+    .drawer-title {
       display: flex;
       align-items: center;
-      gap: 5px;
-      flex-wrap: wrap;
+      gap: 8px;
     }
-    .tool-btn {
-      border: none;
-      padding: 5px 10px;
-      border-radius: 6px;
-      font-size: 0.8rem;
-      font-weight: 700;
-      cursor: pointer;
+    .drawer-close-btn {
+      background: #ef4444;
       color: #ffffff;
-      display: inline-flex;
-      align-items: center;
-      gap: 4px;
-      transition: var(--transition);
-      white-space: nowrap;
-      user-select: none;
+      border: none;
+      padding: 6px 14px;
+      border-radius: 8px;
+      font-size: 0.85rem;
+      font-weight: 800;
+      cursor: pointer;
     }
-    .tool-btn:hover { opacity: 0.9; transform: translateY(-1px); }
-    .btn-grade { background: #10b981; }
-    .btn-toggle-ans { background: #8b5cf6; }
-    .btn-print-blank { background: #2563eb; }
-    .btn-print-sol { background: #dc2626; }
-    .btn-print-note { background: #0d9488; }
-    .btn-mobile-toggle {
-      background: linear-gradient(135deg, #0284c7, #0369a1);
-      box-shadow: 0 0 10px rgba(2, 132, 199, 0.4);
-      border: 1px solid #38bdf8;
+
+    .drawer-group {
+      margin-bottom: 16px;
+    }
+    .drawer-group-title {
+      font-size: 0.84rem;
+      font-weight: 800;
+      letter-spacing: 0.5px;
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .drawer-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 8px;
+    }
+    .drawer-card {
+      background: #1f2937;
+      border: 1.5px solid #374151;
+      border-radius: 10px;
+      padding: 12px 14px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      cursor: pointer;
+      transition: all 0.18s ease;
+      text-decoration: none;
+      color: inherit;
+    }
+    .drawer-card:hover, .drawer-card:active {
+      background: #374151;
+      border-color: #38bdf8;
+      transform: translateX(3px);
+    }
+    .drawer-card.active {
+      background: linear-gradient(135deg, rgba(2, 132, 199, 0.25), rgba(37, 99, 235, 0.25));
+      border-color: #38bdf8;
+      box-shadow: 0 0 12px rgba(56, 189, 248, 0.25);
+    }
+    .drawer-card-icon {
+      font-size: 1.5rem;
+      flex-shrink: 0;
+    }
+    .drawer-card-info {
+      flex: 1;
+    }
+    .drawer-card-title {
+      font-size: 0.96rem;
+      font-weight: 800;
+      color: #ffffff;
+      margin-bottom: 2px;
+    }
+    .drawer-card-desc {
+      font-size: 0.76rem;
+      color: #94a3b8;
+      line-height: 1.35;
+    }
+    .drawer-card-arrow {
+      color: #38bdf8;
+      font-size: 1.1rem;
+      font-weight: 900;
     }
 
     /* ================= WORKSPACE VIEWS ================= */
@@ -1122,26 +1300,26 @@
       display: none;
       position: fixed;
       bottom: 12px;
-      left: 12px;
-      right: 12px;
+      left: 10px;
+      right: 10px;
       z-index: 990;
-      background: rgba(15, 23, 42, 0.94);
-      backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
-      border: 1px solid rgba(59, 130, 246, 0.4);
+      background: rgba(15, 23, 42, 0.95);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      border: 1.5px solid rgba(59, 130, 246, 0.5);
       border-radius: 30px;
-      padding: 6px 10px;
-      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.5);
+      padding: 6px 8px;
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.6);
       justify-content: space-between;
       align-items: center;
-      gap: 6px;
+      gap: 5px;
     }
     .mobile-float-btn {
       border: none;
       border-radius: 20px;
-      padding: 7px 11px;
+      padding: 8px 11px;
       font-size: 0.78rem;
-      font-weight: 700;
+      font-weight: 800;
       color: #ffffff;
       cursor: pointer;
       display: flex;
@@ -1150,9 +1328,9 @@
       transition: var(--transition);
       white-space: nowrap;
     }
+    .mobile-btn-menu { background: linear-gradient(135deg, #f59e0b, #d97706); }
     .mobile-btn-grade { background: #10b981; }
     .mobile-btn-ans { background: #8b5cf6; }
-    .mobile-btn-mode { background: #0284c7; }
     .mobile-btn-top { background: #334155; }
 
     /* ================= TOAST NOTIFICATION POPUP ================= */
@@ -1169,7 +1347,7 @@
       border-radius: 30px;
       font-size: 0.86rem;
       font-weight: 700;
-      z-index: 9999;
+      z-index: 999999;
       opacity: 0;
       pointer-events: none;
       transition: all 0.28s cubic-bezier(0.4, 0, 0.2, 1);
@@ -1181,17 +1359,22 @@
     }
 
     /* ================= 📱 MOBILE VIEWING MODE ENGINE (DUAL TRIGGER: MAX-WIDTH 960PX OR BODY.MOBILE-MODE-ACTIVE) ================= */
-    /* When active either by small screen or manual toggle: */
     body.mobile-mode-active .mobile-float-bar,
     @media screen and (max-width: 960px) {
       .mobile-float-bar { display: flex; }
+    }
+
+    body.mobile-mode-active .mobile-picker-row,
+    @media screen and (max-width: 960px) {
+      .mobile-picker-row { display: block; }
+      .view-scroll-wrapper { display: none; } /* On mobile, replace hidden overflow scroll with the Dropdown + Drawer! */
     }
 
     body.mobile-mode-active,
     @media screen and (max-width: 960px) {
       body {
         font-size: 15px;
-        padding-bottom: 70px; /* Space for mobile floating bar */
+        padding-bottom: 74px; /* Space for mobile floating bar */
       }
 
       /* Top Master Bar */
@@ -1204,23 +1387,23 @@
         align-items: center;
       }
       .master-brand-logo {
-        font-size: 0.88rem;
+        font-size: 0.86rem;
       }
       .candidate-pill {
-        font-size: 0.68rem;
-        padding: 1px 5px;
+        display: none; /* Hide pill in tiny screens to avoid overflow */
       }
       .action-tools-group .btn-print-blank,
       .action-tools-group .btn-print-sol,
-      .action-tools-group .btn-print-note {
+      .action-tools-group .btn-print-note,
+      .action-tools-group .btn-mobile-toggle {
         display: none !important;
       }
       .action-tools-group {
         gap: 4px;
       }
       .tool-btn {
-        padding: 4px 7px;
-        font-size: 0.74rem;
+        padding: 5px 8px;
+        font-size: 0.76rem;
       }
 
       /* Fluid Mobile Card Containers (No 210mm cutoffs!) */
@@ -1448,7 +1631,7 @@
 
     /* ================= 100% PRECISE A4 PRINT MEDIA RULES (ZERO REGRESSION) ================= */
     @media print {
-      .master-bar, .sticky-top-bar, .controls-wrapper, .quiz-toolbar, .theme-toggle-btn, .mobile-float-bar, .toast-popup {
+      .master-bar, .sticky-top-bar, .controls-wrapper, .quiz-toolbar, .theme-toggle-btn, .mobile-float-bar, .toast-popup, .mobile-drawer-overlay {
         display: none !important;
       }
       body {
@@ -1506,27 +1689,156 @@
   <!-- Toast Notification Popup -->
   <div id="toast-msg" class="toast-popup"></div>
 
+  <!-- ================= FULLSCREEN MOBILE MENU DRAWER ================= -->
+  <div id="mobileMenuDrawer" class="mobile-drawer-overlay" onclick="handleDrawerOverlayClick(event)">
+    <div class="mobile-drawer-content" onclick="event.stopPropagation()">
+      <div class="mobile-drawer-header">
+        <div class="drawer-title">
+          <span style="font-size: 1.3rem;">⚡</span>
+          <div>
+            <div style="font-size: 1.02rem; font-weight: 900; color: #38bdf8;">iPAS 完整單元快速導航</div>
+            <div style="font-size: 0.75rem; color: #94a3b8;">考生：林勝穩 (座位 14) · 全9大單元一覽</div>
+          </div>
+        </div>
+        <button class="drawer-close-btn" onclick="closeMobileDrawer()">✕ 關閉</button>
+      </div>
+
+      <div class="drawer-body">
+        <!-- Group 0: Lecture -->
+        <div class="drawer-group">
+          <div class="drawer-group-title">📌 衝刺講義總覽</div>
+          <div class="drawer-card active" id="drawer-card-lecture" onclick="selectFromDrawer('lecture')">
+            <div class="drawer-card-icon">📌</div>
+            <div class="drawer-card-info">
+              <div class="drawer-card-title">考前衝刺核心講義總覽</div>
+              <div class="drawer-card-desc">高頻考點精華整理 ＋ 爆笑過目不忘生活神比喻</div>
+            </div>
+            <div class="drawer-card-arrow">➔</div>
+          </div>
+        </div>
+
+        <!-- Group 1: Round 1 -->
+        <div class="drawer-group">
+          <div class="drawer-group-title" style="color: #60a5fa;">🎯【第一回 考前必殺 50 題】</div>
+          <div class="drawer-grid">
+            <div class="drawer-card" id="drawer-card-sub1-exam" onclick="selectFromDrawer('sub1-exam')">
+              <div class="drawer-card-icon">📄</div>
+              <div class="drawer-card-info">
+                <div class="drawer-card-title">科目一：AI基礎概論 (考卷)</div>
+                <div class="drawer-card-desc">單選 25 題 · 滿分 100 分 · 即時作答計分</div>
+              </div>
+              <div class="drawer-card-arrow">➔</div>
+            </div>
+            <div class="drawer-card" id="drawer-card-sub1-note" onclick="selectFromDrawer('sub1-note')">
+              <div class="drawer-card-icon">📝</div>
+              <div class="drawer-card-info">
+                <div class="drawer-card-title">科目一：13pt 大字手寫筆記</div>
+                <div class="drawer-card-desc">國譽活頁風 · 條列核心秒殺重點 (共 2 頁)</div>
+              </div>
+              <div class="drawer-card-arrow">➔</div>
+            </div>
+            <div class="drawer-card" id="drawer-card-sub2-exam" onclick="selectFromDrawer('sub2-exam')">
+              <div class="drawer-card-icon">📄</div>
+              <div class="drawer-card-info">
+                <div class="drawer-card-title">科目二：生成式AI規劃 (考卷)</div>
+                <div class="drawer-card-desc">單選 25 題 · 滿分 100 分 · 即時作答計分</div>
+              </div>
+              <div class="drawer-card-arrow">➔</div>
+            </div>
+            <div class="drawer-card" id="drawer-card-sub2-note" onclick="selectFromDrawer('sub2-note')">
+              <div class="drawer-card-icon">📝</div>
+              <div class="drawer-card-info">
+                <div class="drawer-card-title">科目二：13pt 大字手寫筆記</div>
+                <div class="drawer-card-desc">國譽活頁風 · 條列核心秒殺重點 (共 2 頁)</div>
+              </div>
+              <div class="drawer-card-arrow">➔</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Group 2: Round 2 -->
+        <div class="drawer-group">
+          <div class="drawer-group-title" style="color: #fb923c;">🔥【第二回 高分強化 50 題】</div>
+          <div class="drawer-grid">
+            <div class="drawer-card" id="drawer-card-sub1-r2-exam" onclick="selectFromDrawer('sub1-r2-exam')">
+              <div class="drawer-card-icon">📄</div>
+              <div class="drawer-card-info">
+                <div class="drawer-card-title">科目一：AI基礎概論 (第二回考卷)</div>
+                <div class="drawer-card-desc">全新 25 題 · 涵蓋 Z-score、ResNet、SVM、U-Net</div>
+              </div>
+              <div class="drawer-card-arrow">➔</div>
+            </div>
+            <div class="drawer-card" id="drawer-card-sub1-r2-note" onclick="selectFromDrawer('sub1-r2-note')">
+              <div class="drawer-card-icon">📝</div>
+              <div class="drawer-card-info">
+                <div class="drawer-card-title">科目一：第二回 13pt 大字手寫筆記</div>
+                <div class="drawer-card-desc">國譽活頁風 · 第二回必考要點 (共 2 頁)</div>
+              </div>
+              <div class="drawer-card-arrow">➔</div>
+            </div>
+            <div class="drawer-card" id="drawer-card-sub2-r2-exam" onclick="selectFromDrawer('sub2-r2-exam')">
+              <div class="drawer-card-icon">📄</div>
+              <div class="drawer-card-info">
+                <div class="drawer-card-title">科目二：生成式AI規劃 (第二回考卷)</div>
+                <div class="drawer-card-desc">全新 25 題 · 涵蓋 LoRA、RAG混合檢索、DPO</div>
+              </div>
+              <div class="drawer-card-arrow">➔</div>
+            </div>
+            <div class="drawer-card" id="drawer-card-sub2-r2-note" onclick="selectFromDrawer('sub2-r2-note')">
+              <div class="drawer-card-icon">📝</div>
+              <div class="drawer-card-info">
+                <div class="drawer-card-title">科目二：第二回 13pt 大字手寫筆記</div>
+                <div class="drawer-card-desc">國譽活頁風 · 第二回必考要點 (共 2 頁)</div>
+              </div>
+              <div class="drawer-card-arrow">➔</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Fast Actions inside Drawer -->
+        <div class="drawer-group" style="margin-top: 14px;">
+          <div class="drawer-group-title">🛠️ 考前快捷工具</div>
+          <div style="display: flex; gap: 8px; flex-wrap: wrap;">
+            <button class="tool-btn btn-grade" style="flex: 1; padding: 10px; justify-content: center;" onclick="gradeAllExams(); closeMobileDrawer();">
+              ✍️ 線上批改計分
+            </button>
+            <button class="tool-btn btn-toggle-ans" style="flex: 1; padding: 10px; justify-content: center;" onclick="toggleAnswersMode(); closeMobileDrawer();">
+              👁️ 詳解切換
+            </button>
+            <button class="tool-btn btn-mobile-toggle" style="flex: 1; padding: 10px; justify-content: center;" onclick="toggleMobileMode(); closeMobileDrawer();">
+              📱 模式切換
+            </button>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
   <!-- ================= MASTER TOP CONTROL BAR ================= -->
   <header class="master-bar">
     <div class="master-bar-container">
       
-      <!-- Row 1: Brand & Action Tools -->
+      <!-- Row 1: Brand & Key Action Buttons -->
       <div class="master-top-row">
         <div class="master-title-box">
-          <span class="master-brand-logo">⚡ iPAS AI衝刺雙回100題</span>
+          <span class="master-brand-logo">⚡ iPAS AI衝刺總站</span>
           <span class="candidate-pill">林勝穩 (座位14)</span>
         </div>
 
         <div class="action-tools-group">
-          <!-- Mobile Mode Dedicated Toggle Button -->
-          <button class="tool-btn btn-mobile-toggle" id="btnModeToggle" onclick="toggleMobileMode()" title="在「📱 手機觀看模式」與「💻 電腦A4紙張模式」之間隨意切換">
-            📱 手機觀看模式
+          <!-- Prominent Mobile Menu Button (Always visible on mobile!) -->
+          <button class="tool-btn btn-mobile-menu-trigger" onclick="openMobileDrawer()" title="點擊展開完整 9 大單元選單">
+            ☰ 完整選單
           </button>
           <button class="tool-btn btn-grade" onclick="gradeAllExams()" title="線上批改測驗分數 (雙回 100 題完整結算)">
-            ✍️ 批改計分
+            ✍️ 批改
           </button>
-          <button class="tool-btn btn-toggle-ans" id="btnToggleAns" onclick="toggleAnswersMode()" title="一鍵切換 2頁空白卷 ↔ 4頁全彩詳解手冊">
-            👁️ 詳解手冊
+          <button class="tool-btn btn-toggle-ans" id="btnToggleAns" onclick="toggleAnswersMode()" title="一鍵切換 題目 ↔ 詳解">
+            👁️ 詳解
+          </button>
+          <button class="tool-btn btn-mobile-toggle" id="btnModeToggle" onclick="toggleMobileMode()" title="手機/電腦模式切換">
+            📱 手機模式
           </button>
           <!-- Desktop Print Buttons -->
           <button class="tool-btn btn-print-blank" onclick="printDocument('blank')" title="一鍵列印當前考卷之 A4 雙面空白考卷 (2頁)">
@@ -1544,38 +1856,63 @@
         </div>
       </div>
 
-      <!-- Row 2: Thumb-Friendly Horizontal Scroll Tabs -->
+      <!-- Row 2: Mobile Dedicated Native Dropdown Picker (100% Full-Width on Phone) -->
+      <div class="mobile-picker-row">
+        <div class="mobile-picker-wrapper">
+          <span class="picker-label">📑 切換單元：</span>
+          <select class="mobile-picker-select" id="mobilePickerSelect" onchange="switchMasterView(this.value, null)">
+            <option value="lecture">📌 衝刺講義總覽 (重點與爆笑比喻)</option>
+            <optgroup label="🎯【第一回 考前必殺 50 題】">
+              <option value="sub1-exam">📄 科目一：AI基礎概論 (考卷 25 題)</option>
+              <option value="sub1-note">📝 科目一：13pt 大字手寫筆記 (2頁)</option>
+              <option value="sub2-exam">📄 科目二：生成式AI規劃 (考卷 25 題)</option>
+              <option value="sub2-note">📝 科目二：13pt 大字手寫筆記 (2頁)</option>
+            </optgroup>
+            <optgroup label="🔥【第二回 高分強化 50 題】">
+              <option value="sub1-r2-exam">📄 科目一：AI基礎概論 (第二回考卷 25 題)</option>
+              <option value="sub1-r2-note">📝 科目一：第二回 13pt 大字手寫筆記 (2頁)</option>
+              <option value="sub2-r2-exam">📄 科目二：生成式AI規劃 (第二回考卷 25 題)</option>
+              <option value="sub2-r2-note">📝 科目二：第二回 13pt 大字手寫筆記 (2頁)</option>
+            </optgroup>
+          </select>
+          <button class="picker-open-drawer-btn" onclick="openMobileDrawer()" title="展開九大單元視覺選單">
+            ☰ 選單全覽
+          </button>
+        </div>
+      </div>
+
+      <!-- Row 3: Desktop Thumb-Friendly Horizontal Scroll Tabs -->
       <div class="view-scroll-wrapper">
         <div class="view-switch-group">
-          <button class="view-btn active" onclick="switchMasterView('lecture', this)">
+          <button class="view-btn active" id="tab-btn-lecture" onclick="switchMasterView('lecture', this)">
             📌 衝刺講義總覽
           </button>
 
           <span class="round-badge r1-badge">【第 1 回 必殺】</span>
-          <button class="view-btn exam-mode" onclick="switchMasterView('sub1-exam', this)">
+          <button class="view-btn exam-mode" id="tab-btn-sub1-exam" onclick="switchMasterView('sub1-exam', this)">
             📄 科一(R1) 考卷
           </button>
-          <button class="view-btn note-mode" onclick="switchMasterView('sub1-note', this)">
+          <button class="view-btn note-mode" id="tab-btn-sub1-note" onclick="switchMasterView('sub1-note', this)">
             📝 科一(R1) 筆記
           </button>
-          <button class="view-btn exam-mode" onclick="switchMasterView('sub2-exam', this)">
+          <button class="view-btn exam-mode" id="tab-btn-sub2-exam" onclick="switchMasterView('sub2-exam', this)">
             📄 科二(R1) 考卷
           </button>
-          <button class="view-btn note-mode" onclick="switchMasterView('sub2-note', this)">
+          <button class="view-btn note-mode" id="tab-btn-sub2-note" onclick="switchMasterView('sub2-note', this)">
             📝 科二(R1) 筆記
           </button>
 
           <span class="round-badge r2-badge">【第 2 回 強化 🔥】</span>
-          <button class="view-btn exam-mode r2-btn" onclick="switchMasterView('sub1-r2-exam', this)">
+          <button class="view-btn exam-mode r2-btn" id="tab-btn-sub1-r2-exam" onclick="switchMasterView('sub1-r2-exam', this)">
             📄 科一(R2) 考卷
           </button>
-          <button class="view-btn note-mode r2-btn" onclick="switchMasterView('sub1-r2-note', this)">
+          <button class="view-btn note-mode r2-btn" id="tab-btn-sub1-r2-note" onclick="switchMasterView('sub1-r2-note', this)">
             📝 科一(R2) 筆記
           </button>
-          <button class="view-btn exam-mode r2-btn" onclick="switchMasterView('sub2-r2-exam', this)">
+          <button class="view-btn exam-mode r2-btn" id="tab-btn-sub2-r2-exam" onclick="switchMasterView('sub2-r2-exam', this)">
             📄 科二(R2) 考卷
           </button>
-          <button class="view-btn note-mode r2-btn" onclick="switchMasterView('sub2-r2-note', this)">
+          <button class="view-btn note-mode r2-btn" id="tab-btn-sub2-r2-note" onclick="switchMasterView('sub2-r2-note', this)">
             📝 科二(R2) 筆記
           </button>
         </div>
@@ -10268,16 +10605,16 @@
     </div>
   </div>
 
-  <!-- Mobile Floating Quick Action Bar -->
+  <!-- Mobile Floating Quick Action Bar (Only on phones) -->
   <div class="mobile-float-bar">
+    <button class="mobile-float-btn mobile-btn-menu" onclick="openMobileDrawer()">
+      ☰ 完整選單
+    </button>
     <button class="mobile-float-btn mobile-btn-grade" onclick="gradeAllExams()">
       ✍️ 交卷計分
     </button>
     <button class="mobile-float-btn mobile-btn-ans" onclick="toggleAnswersMode()">
       👁️ 詳解切換
-    </button>
-    <button class="mobile-float-btn mobile-btn-mode" id="btnFloatModeToggle" onclick="toggleMobileMode()">
-      📱 手機/電腦
     </button>
     <button class="mobile-float-btn mobile-btn-top" onclick="window.scrollTo({ top: 0, behavior: 'smooth' })">
       🔝 置頂
@@ -10287,7 +10624,7 @@
   <!-- Footer -->
   <footer>
     <div style="max-width: 1240px; margin: 0 auto; text-align: center; padding: 24px 18px; font-size: 0.86rem; color: var(--text-dim);">
-      <p style="font-weight: 700; margin-bottom: 4px;">115 年度第四次 AI應用規劃師-初級能力鑑定 · 雙回 100 題全真模擬考卷 ＋ 13pt大字手寫筆記 ＋ 手機觀看模式</p>
+      <p style="font-weight: 700; margin-bottom: 4px;">115 年度第四次 AI應用規劃師-初級能力鑑定 · 雙回 100 題全真考卷 ＋ 13pt大字手寫筆記 ＋ 手機好讀衝刺站</p>
       <p>考生：林勝穩 (Z01-1150405069) · 文藻外語大學 正氣樓 E301 (座位 14) · 祝應考高分奪冠！💪</p>
     </div>
   </footer>
@@ -10307,6 +10644,35 @@
       setTimeout(() => {
         t.classList.remove('show');
       }, 2400);
+    }
+
+    // Mobile Drawer Handlers
+    function openMobileDrawer() {
+      const drawer = document.getElementById('mobileMenuDrawer');
+      if (drawer) {
+        drawer.classList.add('open');
+        document.body.style.overflow = 'hidden';
+      }
+    }
+
+    function closeMobileDrawer() {
+      const drawer = document.getElementById('mobileMenuDrawer');
+      if (drawer) {
+        drawer.classList.remove('open');
+        document.body.style.overflow = '';
+      }
+    }
+
+    function handleDrawerOverlayClick(e) {
+      if (e.target.id === 'mobileMenuDrawer') {
+        closeMobileDrawer();
+      }
+    }
+
+    function selectFromDrawer(viewId) {
+      switchMasterView(viewId, null);
+      closeMobileDrawer();
+      showToast('📑 已切換至目標單元！');
     }
 
     // Mobile View Mode Manager (Toggle between Phone Reading Mode and Desktop A4 Paper Mode)
@@ -10329,10 +10695,6 @@
         btn.innerHTML = isMobileMode ? '📱 手機模式 (ON)' : '💻 電腦A4模式';
         btn.style.background = isMobileMode ? 'linear-gradient(135deg, #0284c7, #0369a1)' : '#475569';
       }
-      const floatBtn = document.getElementById('btnFloatModeToggle');
-      if (floatBtn) {
-        floatBtn.innerHTML = isMobileMode ? '📱 手機' : '💻 電腦';
-      }
     }
 
     function toggleMobileMode() {
@@ -10351,7 +10713,6 @@
         if (saved !== null) {
           defaultMobile = (saved === '1');
         } else {
-          // Auto detect phone, tablet, or width <= 960px
           defaultMobile = (window.innerWidth <= 960) || (/Android|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent));
         }
       } catch(e) {
@@ -10360,12 +10721,27 @@
       setMobileMode(defaultMobile, false);
     })();
 
-    // 1. Master View Switcher
+    // 1. Master View Switcher (Synchronizes Desktop Tabs, Mobile Picker & Drawer Cards)
     function switchMasterView(viewId, btn) {
       currentMainView = viewId;
-      document.querySelectorAll('.view-btn').forEach(b => b.classList.remove('active'));
-      if (btn) btn.classList.add('active');
 
+      // 1. Update Desktop Tabs
+      document.querySelectorAll('.view-btn').forEach(b => b.classList.remove('active'));
+      const activeTabBtn = btn || document.getElementById('tab-btn-' + viewId);
+      if (activeTabBtn) activeTabBtn.classList.add('active');
+
+      // 2. Update Mobile Picker Select Dropdown
+      const mobilePicker = document.getElementById('mobilePickerSelect');
+      if (mobilePicker && mobilePicker.value !== viewId) {
+        mobilePicker.value = viewId;
+      }
+
+      // 3. Update Drawer Cards Highlight
+      document.querySelectorAll('.drawer-card').forEach(c => c.classList.remove('active'));
+      const activeDrawerCard = document.getElementById('drawer-card-' + viewId);
+      if (activeDrawerCard) activeDrawerCard.classList.add('active');
+
+      // 4. Switch Workspace View Containers
       document.querySelectorAll('.workspace-view').forEach(v => v.classList.remove('active'));
       const target = document.getElementById('view-' + viewId);
       if (target) {
@@ -10388,7 +10764,7 @@
 
       if (isSolutionMode) {
         if (btn) {
-          btn.innerText = '👁️ 空白考卷';
+          btn.innerText = '👁️ 空白卷';
           btn.style.background = '#ea580c';
         }
         containers.forEach(c => {
@@ -10400,7 +10776,7 @@
         document.body.classList.add('show-ans');
       } else {
         if (btn) {
-          btn.innerText = '👁️ 詳解手冊';
+          btn.innerText = '👁️ 詳解冊';
           btn.style.background = '#8b5cf6';
         }
         containers.forEach(c => {
@@ -10425,17 +10801,17 @@
 
       if (docType === 'blank') {
         if (!examViews.includes(currentMainView)) {
-          switchMasterView('sub1-exam', document.querySelector('.view-btn.exam-mode'));
+          switchMasterView('sub1-exam', document.getElementById('tab-btn-sub1-exam'));
         }
         setAnswersMode(false);
       } else if (docType === 'solution') {
         if (!examViews.includes(currentMainView)) {
-          switchMasterView('sub1-exam', document.querySelector('.view-btn.exam-mode'));
+          switchMasterView('sub1-exam', document.getElementById('tab-btn-sub1-exam'));
         }
         setAnswersMode(true);
       } else if (docType === 'note') {
         if (!noteViews.includes(currentMainView)) {
-          switchMasterView('sub1-note', document.querySelector('.view-btn.note-mode'));
+          switchMasterView('sub1-note', document.getElementById('tab-btn-sub1-note'));
         }
       }
 
@@ -10529,7 +10905,7 @@
 
     function switchTab(tab, btn) {
       document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active', 'metaphor-mode'));
-      btn.classList.add('active');
+      if (btn) btn.classList.add('active');
 
       const s1 = document.getElementById('section-sub1');
       const s2 = document.getElementById('section-sub2');
@@ -10540,7 +10916,7 @@
         s1.style.display = 'block'; s2.style.display = 'block'; sq.style.display = 'block';
         cards.forEach(c => c.style.display = 'block');
       } else if (tab === 'metaphor') {
-        btn.classList.add('metaphor-mode');
+        if (btn) btn.classList.add('metaphor-mode');
         s1.style.display = 'block'; s2.style.display = 'block'; sq.style.display = 'none';
         cards.forEach(c => c.style.display = 'block');
         window.scrollTo({ top: s1.offsetTop - 80, behavior: 'smooth' });
